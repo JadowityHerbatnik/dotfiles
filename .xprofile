@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 setbg &		# Set the background
 pywalinit &	# sets color scheme and initializes dunst for notifications

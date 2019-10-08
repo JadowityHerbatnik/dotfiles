@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # Syncs repositories and downloads updates, meant to be run as a cronjob.
 
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; export DISPLAY=:0; . $HOME/.profile;
