@@ -14,7 +14,6 @@ transmission-remote -l | grep % |
 				s/L/🔼/g;
 				s/M/🔽/g;
 				s/N/✅/g;
-				s/Z/🌱/g" | awk '{print $2, $1}'
 				s/Z/🌱/g" | awk '{print $2, $1}' | sed -e "s/ $//g"
 
 case $BLOCK_BUTTON in
