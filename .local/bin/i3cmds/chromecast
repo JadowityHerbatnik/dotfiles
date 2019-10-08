@@ -1,0 +1,33 @@
+#!/bin/env sh
+
+mkpath=/home/m/Programming/mkchromecast/mkpath/mkchromecast
+castpath=/home/m/Programming/castnow/index.js
+res=$(xdpyinfo | awk '/dimensions/{print $2}')
+choice=$(printf "Local Video\\nDesktop\\nYouTube\\nSource URL" | dmenu -i -p "Choose mode")
+
+ifsub() { \
+	echo "$(printf "Automatic\\nCustom" | dmenu -i -p "Subtitles to use" )"
+}
+
+subtitles(){ \
+	echo "$(find ~/Videos | grep .srt | dmenu -i -l 10 )"
+}
+
+pickvideo(){ \
+	echo "$(find ~/Videos | grep -e ".mp4\|.mkv\|.wmv\|mov\|avi" | \
+		dmenu -i -l 10 -p "Choose video to stream")"
+}
+cast(){ \
+		if [ "$(ifsub)" = "Automatic" ]; then
+			$TERMINAL "$castpath" "$1"
+		else
+			$TERMINAL "$castpath" "$1" --subtitles "$(subtitles)"
+		fi
+}
+
+case $choice in
+	Desktop) $TERMINAL "$mkpath" --hijack --video -s --screencast --resolution "$res" ;;
+	YouTube) $TERMINAL "$mkpath" --hijack --control --video -s -y "$(xclip -o)" ;;
+	Source\ URL) cast "$(xclip -o)" ;;
+	Local\ Video) cast "$(pickvideo)" ;;
+esac
