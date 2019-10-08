@@ -33,22 +33,27 @@ signal=7
 interval=18000
 signal=5
 
-[mailbox]
-label=📬
-interval=180
-signal=12
+#[mailbox]
+#label=📬
+#interval=180
+#signal=12
 
-#[memory]
-#interval=30
-#label=🧠
+[memory]
+interval=3
+label=🧠
 
-#[cpu]
-#interval=15
-#label=💻
+[cpu]
+interval=15
+label=💻
 
 [volume]
 interval=once
 signal=10
+
+[brightness]
+label=💡
+interval=once
+signal=4
 
 #[disk]
 #interval=60
@@ -69,5 +74,5 @@ interval=30
 [internet]
 interval=10
 
-[help]
-interval=once
+#[help]
+#interval=once

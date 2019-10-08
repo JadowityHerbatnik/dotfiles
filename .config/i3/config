@@ -7,10 +7,29 @@
 # export FILE="ranger"
 # export TERMINAL="st"
 
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color1 #285577
+set_from_resource $id i3wm.color2 #2e9ef4
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $id       $bg
+client.focused_inactive $bg     $bg     $fg  #222222   #222222
+client.unfocused        $bg     $bg     $fg  #222222   #222222
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
+
+
 # #---Basic Definitions---# #
-for_window [class="^.*"] border pixel 2
-gaps inner 15
-gaps outer 15
+for_window [class="^.*"] border pixel 3
+gaps inner 8
+gaps outer 0
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 
@@ -27,12 +46,19 @@ for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
 bar {
-	font pango:mono 10
+	font pango:DejaVu Sans Mono 9
 	status_command i3blocks
 	position top
 	mode dock
 	modifier None
+	i3bar_command i3bar --transparency
+	colors {
+		background #00000069
+		focused_workspace $id $bg $fg
+	}
 }
+
+# hide_edge_borders smart
 
 # #---Basic Bindings---# #
 bindsym $mod+Shift+Return	exec --no-startup-id samedir
@@ -66,6 +92,7 @@ bindsym $mod+o			sticky toggle
 bindsym $mod+Shift+o		exec --no-startup-id i3resize right
 
 bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
+bindsym $mod+g			exec --no-startup-id ddspawn translate
 
 bindsym $mod+s			gaps inner current plus 5
 bindsym $mod+Shift+s		gaps inner current minus 5
@@ -79,7 +106,6 @@ mode "$freeze" { bindsym $mod+Shift+f mode "default"
 bindsym $mod+f			fullscreen toggle
 bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "Distraction-free mode activated." "Press Super+Shift+f to return."
 
-bindsym $mod+g			workspace prev
 
 bindsym $mod+h			focus left
 bindsym $mod+Shift+h		move left 30
@@ -102,7 +128,7 @@ bindsym $mod+Shift+z		gaps outer current minus 5
 
 bindsym $mod+c			exec --no-startup-id cabl
 
-bindsym $mod+v			exec --no-startup-id $term -e $EDITOR -c "VimwikiIndex"
+# bindsym $mod+v			exec --no-startup-id $term -e $EDITOR -c "VimwikiIndex"
 
 bindsym $mod+b			bar mode toggle
 bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id hover left
@@ -119,9 +145,9 @@ bindsym $mod+Shift+Prior	move container to workspace prev
 bindsym $mod+Next		workspace next
 bindsym $mod+Shift+Next		move container to workspace next
 bindsym $mod+Tab		workspace back_and_forth
-bindsym $mod+XF86Back		workspace prev
+bindsym $mod+XF86AudioPrev	workspace prev
 bindsym $mod+Shift+XF86Back	move container to workspace prev
-bindsym $mod+XF86Forward	workspace next
+bindsym $mod+XF86AudioNext	workspace next
 bindsym $mod+Shift+XF86Forward	move container to workspace next
 bindsym $mod+semicolon		workspace next
 bindsym $mod+apostrophe		split horizontal ;; exec $term
@@ -183,14 +209,21 @@ bindsym $mod+F2		restart
 
 # #---Arrow Keys---# #
 bindsym $mod+Left		focus left
-bindsym $mod+Ctrl+Left		move workspace to output left
+bindsym $mod+Ctrl+Left		workspace prev
 bindsym $mod+Down		focus down
-bindsym $mod+Ctrl+Down		move workspace to output down
+bindsym $mod+Ctrl+Down		workspace next
 bindsym $mod+Up			focus up
-bindsym $mod+Ctrl+Up		move workspace to output up
+bindsym $mod+Ctrl+Up		workspace prev
 bindsym $mod+Right 		focus right
-bindsym $mod+Ctrl+Right		move workspace to output right
+bindsym $mod+Ctrl+Right		workspace next
 bindsym $mod+Shift+Left		move left
 bindsym $mod+Shift+Down		move down
 bindsym $mod+Shift+Up		move up
 bindsym $mod+Shift+Right 	move right
+
+
+
+exec xrdb -merge ~/.Xdefaults
+exec redshift -l 52.7:21.6 -t 5700:3300 -g 0.8 -m randr -v
+exec llk
+# exec_always --no-startup-id notify-send -i ~/.local/share/larbs/larbs.png 'Welcome to LARBS:' 'Press Super+F1 for the manual.' -t 10000

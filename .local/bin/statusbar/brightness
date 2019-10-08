@@ -1,0 +1,14 @@
+#!/bin/sh
+
+change="/sys/class/backlight/intel_backlight/brightness"
+current=$(cat $change)
+currentprc=$(bc -l <<< $current'/208*100' | xargs printf "%.0f")
+max=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+increment=5
+
+case $BLOCK_BUTTON in
+	1) brightnesscontrol ;;
+	4) [ "$current" -lt "$((increment+3))" ] && echo 2 > $change; echo $((current-increment)) > $change;;
+	5) [ "$current" -gt "$((max-increment))" ] && echo $max > $change; echo $((current+increment)) > $change;;
+esac
+echo $currentprc%

@@ -7,13 +7,13 @@ export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
-export FILE="vifm"
+export FILE="ranger"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export REFER="$HOME/Documents/referbib"
 export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
 export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
-
+export ZDOTDIR="$HOME/.config/zsh"
 # less/man colors
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"; a="${a%_}"
@@ -35,3 +35,4 @@ echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc
 
 # Switch escape and caps if tty:
 sudo -n loadkeys ~/.local/bin/ttymaps.kmap 2>/dev/null
+

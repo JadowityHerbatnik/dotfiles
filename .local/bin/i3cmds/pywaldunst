@@ -1,0 +1,10 @@
+#!/bin/sh
+
+choice=$(printf "colorz\\ncolorthief\\nhaishoku\\nwal"| dmenu -i -p "Choose pywal backend")
+
+killall dunst;
+rm /home/m/.cache/wal/schemes/_home_m__config_wall_png*;
+wal -i ~/.config/wall.png --backend "$choice"  && \
+dunst_xr_theme_changer && dunst  -conf /home/m/.config/dunst/dunstrc_xr_colors &
+exit
+

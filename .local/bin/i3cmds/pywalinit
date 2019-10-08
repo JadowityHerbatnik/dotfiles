@@ -1,0 +1,7 @@
+#!/bin/sh
+killall dunst;
+rm /home/m/.cache/wal/schemes/_home_m__config_wall_png*;
+wal -R && \
+dunst_xr_theme_changer && dunst  -conf /home/m/.config/dunst/dunstrc_xr_colors &
+exit
+

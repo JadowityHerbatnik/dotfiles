@@ -4,6 +4,8 @@
 [ -z "$2" ] && num="2" || num="$2"
 
 case "$1" in
+	unmute) pulsemixer --unmute;;
+	set) pulsemixer --set-volume "$num" ;;
 	u*) pulsemixer --change-volume +"$num" ;;
 	d*) pulsemixer --change-volume -"$num" ;;
 	m*) pulsemixer --toggle-mute ;;
