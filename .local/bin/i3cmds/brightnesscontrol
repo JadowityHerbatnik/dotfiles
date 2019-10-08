@@ -1,0 +1,20 @@
+#!/bin/sh
+## Set the display brightness percentage
+
+array=()
+for i in {1..100}
+do
+array[$i]="$i"
+done
+
+current=$(cat /sys/class/backlight/intel_backlight/brightness)
+currentprc=$(bc -l <<< $current'/208*100' | xargs printf "%.0f")
+
+prc=$(printf "%s\n" "${!array[@]}" | dmenu -p "Wybjeż jasność ekranu w % (teras jest $currentprc %)")
+
+# Convert percentage to brightness value (max is 208)
+val=$(bc -l <<< $prc'/100*208' | sed 's/\..*//')
+
+echo $val > /sys/class/backlight/intel_backlight/brightness
+
+pkill -RTMIN+4 i3blocks

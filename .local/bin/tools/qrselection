@@ -1,0 +1,6 @@
+#!/bin/sh
+[ -z "$(xclip -o)" ] && exit
+qrencode -s 10 "$(xclip -o)" -o /tmp/qrcode.png;
+sxiv /tmp/qrcode.png
+
+
