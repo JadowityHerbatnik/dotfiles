@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 killall dunst;
 rm /home/m/.cache/wal/schemes/_home_m__config_wall_png*;
 wal -R && \

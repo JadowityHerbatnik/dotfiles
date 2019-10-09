@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 change="/sys/class/backlight/intel_backlight/brightness"
 current=$(cat $change)
