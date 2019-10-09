@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 echo "Google Translater"
 choice=$(printf "en-pl\\nen-en\\npl-en" | dmenu -i)
 getword(){ \

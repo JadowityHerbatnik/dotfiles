@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 ## Set the display brightness percentage
 
 array=()
