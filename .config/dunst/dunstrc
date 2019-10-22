@@ -2,9 +2,9 @@
     monitor = 0
     follow = keyboard
     geometry = "350x5-0+24"
-    indicate_hidden = no
+    indicate_hidden = yes
     shrink = yes
-    transparency = 20
+    transparency = 0
     notification_height = 0
     separator_height = 2
     padding = 0
