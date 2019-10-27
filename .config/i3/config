@@ -15,6 +15,8 @@
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color1 #285577
 set_from_resource $id i3wm.color2 #2e9ef4
+set $alpha 0.65
+
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $id       $bg
@@ -83,7 +85,7 @@ bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
 
 bindsym $mod+Shift+y		exec --no-startup-id i3resize left
 
-bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd
+bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd '-A $alpha'
 bindsym $mod+Shift+u		exec --no-startup-id i3resize down
 
 bindsym $mod+Shift+i		exec --no-startup-id i3resize up
@@ -91,8 +93,8 @@ bindsym $mod+Shift+i		exec --no-startup-id i3resize up
 bindsym $mod+o			sticky toggle
 bindsym $mod+Shift+o		exec --no-startup-id i3resize right
 
-bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
-bindsym $mod+g			exec --no-startup-id ddspawn translate
+bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc '-A $alpha -f mono:pixelsize=24'
+bindsym $mod+g			exec --no-startup-id ddspawn translate '-A $alpha'
 
 bindsym $mod+s			gaps inner current plus 5
 bindsym $mod+Shift+s		gaps inner current minus 5
