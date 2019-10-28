@@ -1,9 +1,9 @@
 #!/bin/env sh
 
-mkpath=/home/m/Programming/mkchromecast/mkpath/mkchromecast
+mkpath=/home/m/Programming/mkchromecast/bin/mkchromecast
 castpath=/home/m/Programming/castnow/index.js
 res=$(xdpyinfo | awk '/dimensions/{print $2}')
-choice=$(printf "Local Video\\nDesktop\\nYouTube\\nSource URL/Torrent" | dmenu -i -p "Choose mode")
+choice=$(printf "Local Video\\nLocal Music\\nDesktop\\nYouTube\\nSource URL/Torrent" | dmenu -i -p "Choose mode")
 
 ifsub() { \
 	echo "$(printf "Automatic\\nCustom" | dmenu -i -p "Subtitles to use" )"
@@ -14,11 +14,17 @@ subtitles(){ \
 }
 
 pickvideo(){ \
-	echo "$(find ~/Videos | grep -e ".mp4\|.mkv\|.wmv\|mov\|avi" | \
+	echo "$(find ~/Videos | grep -e ".mp4\|.mkv\|.wmv\|.mov\|.avi" | \
 		dmenu -i -l 10 -p "Choose video to stream")"
 }
+pickmusic(){ \
+	echo "$(find ~/Music | grep -e ".m4a\|.mp3\|.ogg\|.flac" | \
+		dmenu -i -l 10 -p "Choose music to stream")"
+}
 cast(){ \
-		if [ "$(ifsub)" = "Automatic" ]; then
+		if [ "$2" = "It's music, don't ask for me for subtitles man" ]; then
+			$TERMINAL "$castpath" "$1"
+		elif [ "$(ifsub)" = "Automatic" ]; then
 			$TERMINAL "$castpath" "$1"
 		else
 			$TERMINAL "$castpath" "$1" --subtitles "$(subtitles)"
@@ -30,4 +36,5 @@ case $choice in
 	YouTube) $TERMINAL "$mkpath" --hijack --control --video -s -y "$(xclip -o)" ;;
 	Source\ URL/Torrent) cast "$(xclip -o)" ;;
 	Local\ Video) cast "$(pickvideo)" ;;
+	Local\ Music) cast "$(pickmusic)" "It's music, don't ask me for subtitles man";;
 esac
