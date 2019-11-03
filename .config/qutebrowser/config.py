@@ -6,6 +6,10 @@
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
 
+# Always restore open sites when qutebrowser is reopened.
+# Type: Bool
+c.auto_save.session = True
+
 # User agent to send. Unset to send the default. Note that the value
 # read from JavaScript is always the global value.
 # Type: String
@@ -52,13 +56,17 @@ c.content.user_stylesheets = []
 #   - history
 c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'history']
 
-# Text editor to open for editing commands and urls
-config.set('editor.command', ["st","-e","nvim","{}"])
-
-
+# Editor (and arguments) to use for the `open-editor` command. The
+# following placeholders are defined: * `{file}`: Filename of the file
+# to be edited. * `{line}`: Line in which the caret is found in the
+# text. * `{column}`: Column in which the caret is found in the text. *
+# `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
+# Same as `{column}`, but starting from index 0.
+# Type: ShellCommand
+c.editor.command = ['st', '-e', 'nvim', '{}']
 
 # Bindings for normal mode
+config.bind('<Ctrl+Shift+n>', 'open -p')
 config.bind('<Ctrl+h>', 'history -t')
+config.bind('<Ctrl+l>', 'edit-url')
 config.bind('D', 'config-cycle content.user_stylesheets /home/m/Programming/Solarized/css/solarized-dark/solarized-dark-all-sites.css "" ')
-config.bind('<Ctrl+Shift+n>','open -p')
-config.bind('<Ctrl+l>','edit-url')
