@@ -10,10 +10,10 @@ alias ka="killall" \
 	g="git" \
 	trem="transmission-remote" \
 	e="$EDITOR" \
-	v="$EDITOR" \
 	x="sxiv -ft *" \
 	sdn="sudo shutdown -h now" \
 	gua="git remote | xargs -L1 git push --all" \
+	gs="tac <(git status)" \
 	ls="ls -hN --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
@@ -25,7 +25,8 @@ alias ka="killall" \
 	upc="sudo pacman -Syu; pkill -RTMIN+8 i3blocks" \
 	lsp="pacman -Qett --color=always | less" \
 	ffmpeg="ffmpeg -hide_banner" \
-	l='eval "$(fc -ln -1) | less"'
+	l='eval "$(fc -ln -1) | less"' \
+	v='eval "$(fc -ln -1) | xargs $EDITOR"'
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 
