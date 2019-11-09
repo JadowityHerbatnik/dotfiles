@@ -15,7 +15,7 @@
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color1 #285577
 set_from_resource $id i3wm.color2 #2e9ef4
-set $alpha 0.65
+set $alpha 0.7
 
 
 # class                 border  backgr. text indicator child_border
@@ -81,7 +81,7 @@ bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec -
 bindsym $mod+Shift+r		exec --no-startup-id winresize
 
 bindsym $mod+t			split toggle
-bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
+bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 0
 
 bindsym $mod+Shift+y		exec --no-startup-id i3resize left
 
