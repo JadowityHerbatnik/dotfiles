@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 echo "Google Translater"
-choice=$(printf "en-pl\\nen-en\\npl-en" | dmenu -i)
+choice=$(printf "en-pl\\nen-en\\npl-en\\nwymowa" | dmenu -i)
 getword(){ \
 	echo "$(printf "" | dmenu -i -p "Word to translate")"
 }
@@ -8,4 +8,5 @@ case $choice in
 	en-pl) trans en:pl -v "$(getword)" ;;
 	en-en) trans en:en -v "$(getword)" ;;
 	pl-en) trans pl:en -v "$(getword)" ;;
+	wymowa)trans en:en -speak -no-translate "$(getword)" ;;
 esac
