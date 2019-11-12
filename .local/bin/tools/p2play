@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+subtitles(){ \
+	echo "$(find ~/Videos ~/Downloads -maxdepth 5 | grep .srt | dmenu -fn 7 -i -l 10 )"
+}
+
+torrent="$(xclip -o)"
+
+$TERMINAL peerflix --mpv $torrent -t "$(subtitles)" -l
