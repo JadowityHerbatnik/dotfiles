@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+/usr/bin/anacron -t /home/m/.config/anacron/anacrontab -S /home/m/.config/anacron/spool
