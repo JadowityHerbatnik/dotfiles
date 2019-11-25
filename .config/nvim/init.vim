@@ -108,6 +108,9 @@ set clipboard+=unnamedplus
 " Run xrdb whenever Xdefaults or Xresources are updated.
 	autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
+" Shell scripits shebang
+	inoremap <leader>she  #!/usr/bin/env sh
+
 " Navigating with guides
 	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
