@@ -31,7 +31,7 @@ set clipboard+=unnamedplus
 " Some basics:
 	nnoremap c "_c
 	set nocompatible
-	filetype plugin on
+	filetype plugin indent on
 	set omnifunc=syntaxcomplete#Complete
 	syntax on
 	set encoding=utf-8
@@ -129,6 +129,13 @@ set clipboard+=unnamedplus
 " Shell scripits shebang
 	inoremap <leader>she  #!/usr/bin/env sh<CR>
 
+" Some braces formatting
+	inoremap ( ()<++><Left><Left><Left><Left><Left>
+	inoremap [ []<++><Left><Left><Left><Left><Left>
+	inoremap { {<CR><CR>}<Up><Tab>
+	inoremap " ""<Left>
+	inoremap ' ''<Left>
+	inoremap < <  >
 " Navigating with guides
 	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
