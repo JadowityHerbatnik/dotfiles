@@ -8,6 +8,7 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/goyo.vim'
@@ -31,6 +32,7 @@ set clipboard+=unnamedplus
 	nnoremap c "_c
 	set nocompatible
 	filetype plugin on
+	set omnifunc=syntaxcomplete#Complete
 	syntax on
 	set encoding=utf-8
 	set number relativenumber
@@ -80,6 +82,20 @@ set clipboard+=unnamedplus
 
 " Open corresponding .pdf/.html or preview
 	map <leader>p :!opout <c-r>%<CR><CR>
+
+" ------------------------------------
+" Autoformatting for various languages
+" ------------------------------------
+
+" Javascript
+	autocmd BufWritePre,InsertLeave *.js Neoformat
+" CSS
+	autocmd BufWritePre,InsertLeave *.css Neoformat
+	autocmd BufWritePre,InsertLeave *.scss Neoformat
+" HTML
+	autocmd BufWritePre,InsertLeave *.html Neoformat
+" -------------------------------------
+" -------------------------------------
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
 	autocmd VimLeave *.tex !texclear %
