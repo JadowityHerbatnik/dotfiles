@@ -123,6 +123,8 @@ set clipboard+=unnamedplus
 
 " Run xrdb whenever Xdefaults or Xresources are updated.
 	autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+" Compile SCSS on exit
+	autocmd BufWritePost *.scss !compiler %
 
 " Shell scripits shebang
 	inoremap <leader>she  #!/usr/bin/env sh<CR>
