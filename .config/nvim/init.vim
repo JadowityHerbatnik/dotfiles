@@ -57,7 +57,7 @@ set clipboard+=unnamedplus
 	imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
 	nm <leader>i :call ToggleIPA()<CR>
 	imap <leader>i <esc>:call ToggleIPA()<CR>a
-	nm <leader>q :call ToggleProse()<CR>
+	nm <leader>e :call ToggleProse()<CR>
 
 " Shortcutting split navigation, saving a keypress:
 	map <C-h> <C-w>h
@@ -66,14 +66,14 @@ set clipboard+=unnamedplus
 	map <C-l> <C-w>l
 
 " Check file in shellcheck:
-	map <leader>s :!clear && shellcheck %<CR>
+"	map <leader>s :!clear && shellcheck %<CR>
 
 " Open my bibliography file in split
 	map <leader>b :vsp<space>$BIB<CR>
 	map <leader>r :vsp<space>$REFER<CR>
 
 " Replace all is aliased to S.
-	nnoremap S :%s//g<Left><Left>
+	nnoremap S :%s///g<Left><Left><Left>
 
 " Compile document, be it groff/LaTeX/markdown/etc.
 	map <leader>c :w! \| !compiler <c-r>%<CR>
@@ -109,7 +109,7 @@ set clipboard+=unnamedplus
 	autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
 " Shell scripits shebang
-	inoremap <leader>she  #!/usr/bin/env sh
+	inoremap <leader>she  #!/usr/bin/env sh<CR>
 
 " Navigating with guides
 	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
@@ -119,3 +119,14 @@ set clipboard+=unnamedplus
 " Save file as sudo on files that require root permission
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
+" ':w<CR>' is 4 key strokes, ',w' is two 1!1!!1
+	map <leader>w :w<CR>
+
+" Same for ':wq'
+	map <leader>wq :wq<CR>
+
+" And ':q'
+	map <leader>q :q<CR>
+
+" And also ':q!'
+	map <leader>Q :q!<CR>
