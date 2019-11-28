@@ -8,6 +8,7 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'mattn/emmet-vim'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
@@ -135,11 +136,16 @@ set clipboard+=unnamedplus
 	inoremap { {<CR><CR>}<Up><Tab>
 	inoremap " ""<Left>
 	inoremap ' ''<Left>
-	inoremap < <  >
+
+" Emmet binding
+	let g:user_emmet_leader_key=',m'
+
 " Navigating with guides
 	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 	map <leader><leader> <Esc>/<++><Enter>"_c4l
+	map <leader>. <Esc>/""<CR><Right>i
+	inoremap <leader>. <Esc>/""<CR><Right>i
 
 " Save file as sudo on files that require root permission
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
