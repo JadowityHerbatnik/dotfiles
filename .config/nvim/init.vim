@@ -8,6 +8,10 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'Valloric/YouCompleteMe'
 Plug 'mattn/emmet-vim'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-surround'
@@ -29,6 +33,7 @@ set mouse=a
 set nohlsearch
 set clipboard+=unnamedplus
 
+
 " Some basics:
 	nnoremap c "_c
 	set nocompatible
@@ -37,6 +42,10 @@ set clipboard+=unnamedplus
 	syntax on
 	set encoding=utf-8
 	set number relativenumber
+
+" Reload vim
+	nnoremap <leader>r <Esc>:source ~/.vimrc<CR>
+
 " Enable autocompletion:
 	set wildmode=longest,list,full
 " Disables automatic commenting on newline:
@@ -68,12 +77,14 @@ set clipboard+=unnamedplus
 	map <C-k> <C-w>k
 	map <C-l> <C-w>l
 
+" Navigate in Insert mode
+	inoremap <C-k> <Up>
+	inoremap <C-j> <Down>
+	inoremap <C-h> <Left>
+	inoremap <C-l> <Right>
+
 " Check file in shellcheck:
 "	map <leader>s :!clear && shellcheck %<CR>
-
-" Open my bibliography file in split
-	map <leader>b :vsp<space>$BIB<CR>
-	map <leader>r :vsp<space>$REFER<CR>
 
 " Replace all is aliased to S.
 	nnoremap S :%s///g<Left><Left><Left>
@@ -88,15 +99,7 @@ set clipboard+=unnamedplus
 " Autoformatting for various languages
 " ------------------------------------
 
-" Javascript
-	autocmd BufWritePre,InsertLeave *.js Neoformat
-" CSS
-	autocmd BufWritePre,InsertLeave *.css Neoformat
-	autocmd BufWritePre,InsertLeave *.scss Neoformat
-" HTML
-	autocmd BufWritePre,InsertLeave *.html Neoformat
-" -------------------------------------
-" -------------------------------------
+	autocmd BufWritePre,InsertLeave *.html,*.scss,*.css,*.js Neoformat
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
 	autocmd VimLeave *.tex !texclear %
@@ -124,6 +127,7 @@ set clipboard+=unnamedplus
 
 " Run xrdb whenever Xdefaults or Xresources are updated.
 	autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+
 " Compile SCSS on exit
 	autocmd BufWritePost *.scss !compiler %
 
@@ -131,11 +135,11 @@ set clipboard+=unnamedplus
 	inoremap <leader>she  #!/usr/bin/env sh<CR>
 
 " Some braces formatting
-	inoremap ( ()<++><Left><Left><Left><Left><Left>
-	inoremap [ []<++><Left><Left><Left><Left><Left>
-	inoremap { {<CR><CR>}<Up><Tab>
-	inoremap " ""<Left>
-	inoremap ' ''<Left>
+	inoremap () ()<Left>
+	inoremap [] []<Left>
+	inoremap {} {}<Left>
+	inoremap "" ""<Left>
+	inoremap '' ''<Left>
 
 " Emmet binding
 	let g:user_emmet_leader_key=',m'
@@ -144,8 +148,18 @@ set clipboard+=unnamedplus
 	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 	map <leader><leader> <Esc>/<++><Enter>"_c4l
-	map <leader>. <Esc>/""<CR><Right>i
-	inoremap <leader>. <Esc>/""<CR><Right>i
+
+" Match the next empty single or double quotation marks
+	map <leader>' <Esc>/\v""\|''<CR>ci"
+	inoremap <leader>' <Esc>/\v""\|''<CR>ci"
+
+" Match the end of the next bracket
+	map <leader>/ <Esc>/[\]\)\}\>]<CR>a
+	inoremap <leader>/ <Esc>/[\]\)\}\>]<CR>a
+
+" Match the beginning of the next bracket
+	map <leader>. <Esc>/[\[\(\{\<]<CR>a
+	inoremap <leader>. <Esc>/[\[\(\{\<]<CR>a
 
 " Save file as sudo on files that require root permission
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
