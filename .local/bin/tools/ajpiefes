@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+choice="$(printf "IPFS\\nIPNS" | dmenu -i -p "Choose hash type")"
+
+gethash(){ \
+	echo "$(printf "" | dmenu -i -p "Hash")"
+}
+
+launch(){
+	$BROWSER $1
+}
+
+case $choice in
+	IPFS) launch "https://ipfs.io/ipfs/$(gethash)" ;;
+	IPNS) launch "https://ipfs.io/ipns/$(gethash)" ;;
+esac
+
+
+
+
