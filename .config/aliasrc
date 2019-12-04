@@ -26,7 +26,8 @@ alias ka="killall" \
 	lsp="pacman -Qett --color=always | less" \
 	ffmpeg="ffmpeg -hide_banner" \
 	l='eval "$(fc -ln -1) | less"' \
-	v='eval "$(fc -ln -1) | xargs $EDITOR"'
+	v='eval "$(fc -ln -1) | xargs $EDITOR"' \
+	ipfsgen='ipfs key gen --type=rsa --size=2048' \
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 
