@@ -7,12 +7,26 @@ gethash(){ \
 }
 
 launch(){
-	$BROWSER $1
+	if ["$1" -z]; then
+		exit 1;
+	else
+		$BROWSER $1
+	fi
 }
 
 case $choice in
-	IPFS) launch "https://ipfs.io/ipfs/$(gethash)" ;;
-	IPNS) launch "https://ipfs.io/ipns/$(gethash)" ;;
+	IPFS) hash="$(gethash)"
+				if [ -z "$hash" ]; then
+					exit 1
+				else
+					launch "https://ipfs.io/ipfs/$hash"
+				fi ;;
+	IPNS) hash="$(gethash)"
+				if [ -z "$hash" ]; then
+					exit 1
+				else
+					launch "https://ipfs.io/ipns/$hash"
+				fi ;;
 esac
 
 
