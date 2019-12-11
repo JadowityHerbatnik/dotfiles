@@ -8,10 +8,16 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'chemzqm/vim-jsx-improve'
+" Plug 'othree/yajs.vim'
+" Plug 'yuezk/vim-js'
+" Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'cakebaker/scss-syntax.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'mattn/emmet-vim'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-surround'
@@ -44,6 +50,12 @@ set clipboard+=unnamedplus
 	set number relativenumber
 	set tabstop=2
 	set shiftwidth=2
+	colorscheme koehler
+
+
+" Deoplete settings
+	let g:deoplete#enable_at_startup = 1
+	inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Reload vim
 	nnoremap <leader>r <Esc>:source ~/.vimrc<CR>
@@ -54,7 +66,7 @@ set clipboard+=unnamedplus
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Goyo plugin makes text more readable when writing prose:
-	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
+	" map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
@@ -135,6 +147,14 @@ set clipboard+=unnamedplus
 
 " Shell scripits shebang
 	inoremap <leader>she  #!/usr/bin/env sh<CR>
+
+" Javascript
+	autocmd FileType javascript inoremap <leader>for for(let i=0; i<<++>; i++){<CR><++><CR>}<CR><++><Up><Up><Up>
+
+	autocmd FileType javascript inoremap <leader>func function <++>(<++>){<CR><++><CR>}<CR><++><Up><Up><Up>
+
+	autocmd FileType javascript inoremap <leader>arr (<++>)=>{<++>}<Esc>B
+
 
 " Some braces formatting
 	inoremap () ()<Left>
