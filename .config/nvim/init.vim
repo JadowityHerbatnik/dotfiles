@@ -107,7 +107,7 @@ set clipboard+=unnamedplus
 	map <leader>c :w! \| !compiler <c-r>%<CR>
 
 " Open corresponding .pdf/.html or preview
-	map <leader>p :!opout <c-r>%<CR><CR>
+	" map <leader>p :!opout <c-r>%<CR><CR>
 
 " ------------------------------------
 " Autoformatting for various languages
@@ -143,17 +143,19 @@ set clipboard+=unnamedplus
 	autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
 " Compile SCSS on exit
-	autocmd BufWritePost *.scss !compiler %
+	autocmd BufWritePost *.scss silent !compiler %
 
 " Shell scripits shebang
 	inoremap <leader>she  #!/usr/bin/env sh<CR>
 
 " Javascript
+	autocmd FileType javascript inoremap <leader>p console.log()<Left>
+
 	autocmd FileType javascript inoremap <leader>for for(let i=0; i<<++>; i++){<CR><++><CR>}<CR><++><Up><Up><Up>
 
 	autocmd FileType javascript inoremap <leader>func function <++>(<++>){<CR><++><CR>}<CR><++><Up><Up><Up>
 
-	autocmd FileType javascript inoremap <leader>arr (<++>)=>{<++>}<Esc>B
+	autocmd FileType javascript inoremap <leader>arr ()=>{<++>}<Esc>Ba
 
 
 " Some braces formatting
