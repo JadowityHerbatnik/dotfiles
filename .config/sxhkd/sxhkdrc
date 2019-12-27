@@ -27,6 +27,13 @@ super + w
 	$BROWSER
 super + shift + g
 	gimp
+#Dropdown programs
+super + a
+	ddspawn dropdowncalc "-A 0.7 -f mono:pixelsize=24"
+super + u
+	ddspawn tmuxdd "-A 0.7"
+super + g
+	ddspawn translate "-A 0.7"
 
 # Et cetera...
 super + grave
