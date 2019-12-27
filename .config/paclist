@@ -10,8 +10,8 @@ bashburn
 bc
 bison
 bluez-utils
+bspwm
 calcurse
-castnow-git
 catdoc
 chromium
 chromium-widevine
@@ -40,6 +40,7 @@ gcc
 geckodriver
 gimp
 gnome-keyring
+go-ipfs
 gotop
 gparted
 grub
@@ -75,6 +76,7 @@ mpd
 mpv
 mutt-wizard-git
 nano
+ncdu
 ncmpcpp
 neofetch
 neovim
@@ -82,7 +84,9 @@ netctl
 networkmanager
 newsboat
 noto-fonts-emoji
+npm
 ntfs-3g
+obexftp
 odt2txt
 os-prober
 p7zip
@@ -134,6 +138,7 @@ vifm
 virtualbox
 vscodium-bin
 w3m
+wget
 x11vnc
 xcape
 xcompmgr
@@ -147,8 +152,8 @@ xorg-xbacklight
 xorg-xev
 xorg-xinit
 xorg-xkill
-xorg-xprop
 xorg-xwininfo
+xtitle
 xwallpaper
 yay
 youtube-dl
