@@ -1,3 +1,5 @@
 #!/usr/bin/env sh
 
-pacman -Qqett > .config/paclist
+pacman -Qqett > ~/.config/paclist
+
+notify-send "📦 Repository Backup" "Package database updated"
