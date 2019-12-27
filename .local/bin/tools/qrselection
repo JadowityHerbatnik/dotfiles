@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
-[ -z "$(xclip -o)" ] && exit
-qrencode -s 10 "$(xclip -o)" -o /tmp/qrcode.png;
+[ -z "$(xclip -selection clipboard -o)" ] && exit
+qrencode -s 10 "$(xclip -selection clipboard -o)" -o /tmp/qrcode.png;
 sxiv /tmp/qrcode.png
 
 
