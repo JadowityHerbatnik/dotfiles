@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+status="$(bluetoothctl info | grep Connected | awk '{print $2}')"
+numberofdevices="$(bluetoothctl info | grep Connected | wc -l )"
+
+if [ $status = "yes" ]; then
+	printf '%s\n' $numberofdevices
+fi
