@@ -1,7 +1,9 @@
 #!/usr/bin/env sh
 alias ka="killall" \
+	bts="blueman-sendto --device=D8:63:75:1A:5E:02" \
+	btt="bluetoothtoggle" \
 	mkd="mkdir -pv" \
-	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
+	mpv="mpv --osd-fractions --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
 	calcurse="calcurse -D ~/.config/calcurse" \
 	magit="nvim -c MagitOnly" \
 	p="sudo pacman" \
