@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+if [ $(pgrep -x blueman-applet) ]; then
+	killall blueman-applet
+else
+	nohup blueman-applet >/dev/null 2>&1 & disown
+fi
+
+
