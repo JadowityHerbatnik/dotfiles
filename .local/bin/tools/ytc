@@ -1,6 +1,4 @@
 #!/usr/bin/env sh
 
-youtube-comment-scraper "$1" | highlight --out-format=ansi -S json | less
-
-# youtube-comment-scraper "$1" | highlight -S json --out-format=ansi | grep -e "\"text\"\|\"author\"\|\"likes\"" | less
+youtube-comment-scraper "$1" | cat | grep -e "\"author\"\|\"text\"\|\"likes\"\|},$" | sed 's/},//g' | highlight -S json --out-format=ansi | less
 
