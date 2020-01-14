@@ -17,7 +17,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'hail2u/vim-css3-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-" Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 Plug 'mattn/emmet-vim'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-surround'
@@ -151,9 +151,9 @@ set clipboard+=unnamedplus
 " Javascript
 	autocmd FileType javascript inoremap <leader>p console.log()<Left>
 
-	autocmd FileType javascript inoremap <leader>for for(let i=0; i<<++>; i++){<CR><++><CR>}<CR><++><Up><Up><Up>
+	autocmd FileType javascript inoremap <leader>for for(let i=0; i<<++>; i++){<CR><++><CR>}<Up><Up>
 
-	autocmd FileType javascript inoremap <leader>func function <++>(<++>){<CR><++><CR>}<CR><++><Up><Up><Up>
+	autocmd FileType javascript inoremap <leader>func function <++>(<++>){<CR><++><CR>}<Up><Up>
 
 	autocmd FileType javascript inoremap <leader>arr ()=>{<++>}<Esc>Ba
 
