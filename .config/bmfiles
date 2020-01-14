@@ -18,3 +18,5 @@ cfB	~/.config/i3blocks/config
 cfk	~/.config/sxhkd/sxhkdrc
 cfc	~/.config/compton/compton.conf
 cfx	~/.xprofile
+cfg	~/.gitignore
+cfr ~/.config/ranger/rc.conf

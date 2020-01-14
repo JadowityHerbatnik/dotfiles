@@ -19,8 +19,6 @@ super + shift + a
 	$TERMINAL -e pulsemixer; pkill -RTMIN+10 i3blocks
 super + shift + c
 	camtoggle
-super + shift + e
-	tutorialvids
 super + shift + w
 	webapps
 super + w

@@ -49,6 +49,9 @@ for_window [instance="dropdown_*"] move position center
 
 bar {
 	font pango:System-ui Bold 9
+	bindsym button1 nop
+	bindsym button4 nop
+	bindsym button5 nop
 	status_command i3blocks
 	position top
 	mode dock
