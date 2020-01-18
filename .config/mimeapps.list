@@ -19,6 +19,8 @@ application/x-extension-shtml=chromium.desktop
 application/xhtml+xml=chromium.desktop
 application/x-extension-xhtml=chromium.desktop
 application/x-extension-xht=chromium.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
+application/msword=libreoffice-writer.desktop;
 
 [Added Associations]
 x-scheme-handler/http=chromium.desktop;
@@ -32,3 +34,4 @@ application/x-extension-shtml=chromium.desktop;
 application/xhtml+xml=chromium.desktop;
 application/x-extension-xhtml=chromium.desktop;
 application/x-extension-xht=chromium.desktop;
+
