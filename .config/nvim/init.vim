@@ -145,6 +145,9 @@ set clipboard+=unnamedplus
 " Compile SCSS on exit
 	autocmd BufWritePost *.scss silent !compiler %
 
+" Restart compton on onfig update
+	autocmd BufWritePost *compton.conf silent !restartcompton
+
 " Shell scripits shebang
 	inoremap <leader>she  #!/usr/bin/env sh<CR>
 
