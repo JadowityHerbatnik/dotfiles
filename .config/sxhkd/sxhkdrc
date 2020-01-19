@@ -6,7 +6,9 @@ super + d
 super + r
 	$TERMINAL -e $FILE
 super + e
-	$TERMINAL -e neomutt
+	$TERMINAL -e neomuttwrapper
+super + shift + e
+	mailsync
 super + m
 	$TERMINAL -e ncmpcpp
 super + n
