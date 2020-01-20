@@ -113,7 +113,7 @@ set clipboard+=unnamedplus
 " Autoformatting for various languages
 " ------------------------------------
 
-	autocmd BufWritePre,InsertLeave *.html,*.scss,*.css,*.js Neoformat
+	autocmd BufWritePre,InsertLeave *.html,*.scss,*.css,*.js,*.jsx,*.json Neoformat
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
 	autocmd VimLeave *.tex !texclear %
@@ -160,6 +160,8 @@ set clipboard+=unnamedplus
 
 	autocmd FileType javascript inoremap <leader>arr ()=>{<++>}<Esc>Ba
 
+	autocmd FileType javascript inoremap <leader>imp import <++> from "<++>";<Esc>I
+
 
 " Some braces formatting
 	inoremap () ()<Left>
@@ -167,6 +169,7 @@ set clipboard+=unnamedplus
 	inoremap {} {}<Left>
 	inoremap "" ""<Left>
 	inoremap '' ''<Left>
+	inoremap `` ``<Left>
 
 " Emmet binding
 	let g:user_emmet_leader_key=',m'
