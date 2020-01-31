@@ -1,4 +1,1 @@
-#!/usr/bin/env sh
-
-sudo /usr/bin/updatebd
-notify-send "Locate database updated"
+/home/m/.local/bin/cron/updatelocate

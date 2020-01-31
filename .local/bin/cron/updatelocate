@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+sudo /usr/bin/updatedb
+notify-send "Locate database updated"
