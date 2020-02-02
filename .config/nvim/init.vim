@@ -8,6 +8,7 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'chemzqm/vim-jsx-improve'
 " Plug 'othree/yajs.vim'
