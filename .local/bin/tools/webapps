@@ -3,8 +3,8 @@
 choice=$(printf "Messenger\\nWhatsApp\\nDiscord\\nBip\\nNetflix" | dmenu -i -p "Pick WebApp")
 
 case $choice in
-	Messenger) chromium --app=http://messenger.com ;;
-	WhatsApp) chromium --app=http://web.whatsapp.com ;;
+	Messenger) brave --app=http://messenger.com ;;
+	WhatsApp) brave --app=http://web.whatsapp.com ;;
 	Discord) chromium --app=https://discordapp.com/channels/@me ;;
 	Bip) chromium --app=http://web.bip.com ;;
 	Netflix) chromium --app=http://netflix.com ;;
