@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+inputencoding=$(printf "Windows-1250\\nISO-8859-2" | dmenu -i -p "Kodowanie oryginalnego pliku")
+iconv -f $inputencoding -t UTF-8 "$1" > "$1".pl
+
