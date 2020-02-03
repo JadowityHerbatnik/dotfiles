@@ -149,6 +149,9 @@ set clipboard+=unnamedplus
 " Restart compton on onfig update
 	autocmd BufWritePost *compton.conf silent !restartcompton
 
+" Generate alacritty config on write
+	autocmd BufWritePost *alacritty.yml.in silent !xalacritty
+
 " Shell scripits shebang
 	inoremap <leader>she  #!/usr/bin/env sh<CR>
 
@@ -159,7 +162,7 @@ set clipboard+=unnamedplus
 
 	autocmd FileType javascript inoremap <leader>func function <++>(<++>){<CR><++><CR>}<Up><Up>
 
-	autocmd FileType javascript inoremap <leader>arr ()=>{<++>}<Esc>Ba
+	autocmd FileType javascript inoremap <leader>arr ()=><++><Esc>Ba
 
 	autocmd FileType javascript inoremap <leader>imp import <++> from "<++>";<Esc>I
 
