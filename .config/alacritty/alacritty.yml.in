@@ -1,4 +1,11 @@
-background_opacity: 0.7
+background_opacity: 0.8
+
+key_bindings:
+- { key: K, mods: Control, action: ScrollLineUp }
+- { key: J, mods: Control, action: ScrollLineDown }
+- { key: U, mods: Control, action: ScrollPageUp }
+- { key: D, mods: Control, action: ScrollPageDown }
+
 
 # Colors
 colors:
