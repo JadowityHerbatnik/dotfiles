@@ -75,7 +75,13 @@ handle_extension() {
             # Preview as text conversion
             odt2txt "${FILE_PATH}" && exit 5
             exit 1;;
-
+				# DOC
+				doc)
+					catdoc "${FILE_PATH}" && exit 5
+					exit 1;;
+				docx)
+					libreoffice --cat "${FILE_PATH}" && exit 5
+					exit 1;;
         # HTML
         #htm|html|xhtml)
         #    # Preview as text conversion
