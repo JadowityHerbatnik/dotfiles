@@ -27,6 +27,7 @@ alias ka="killall" \
 	yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
 	yta="youtube-dl --add-metadata -f 140" \
 	YT="youtube-viewer" \
+	subdl="subdl -i" \
 	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
 	upc="sudo pacman -Syu; pkill -RTMIN+8 i3blocks" \
 	lsp="pacman -Qett --color=always | less" \
