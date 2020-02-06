@@ -77,9 +77,11 @@ handle_extension() {
             exit 1;;
 				# DOC
 				doc)
+					libreoffice --cat "${FILE_PATH}" && exit 5
 					catdoc "${FILE_PATH}" && exit 5
 					exit 1;;
 				docx)
+					docx2txt "${FILE_PATH}" && exit 5
 					libreoffice --cat "${FILE_PATH}" && exit 5
 					exit 1;;
         # HTML
