@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+newsboat && pkill -RTMIN+6 i3blocks

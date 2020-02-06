@@ -12,7 +12,7 @@ super + shift + e
 super + m
 	$TERMINAL -e ncmpcpp
 super + n
-	$TERMINAL -e newsboat
+	$TERMINAL -e newswrapper
 super + i
 	$TERMINAL -e htop
 super + y
