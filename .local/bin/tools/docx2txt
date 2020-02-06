@@ -426,9 +426,6 @@ if (@ARGV == 1) {
      $ARGV[1] .= ".txt" if !($ARGV[1] =~ s/\.docx$/\.txt/);
 }
 
-my $txtfile;
-open($txtfile, "> $ARGV[1]") || cleandie "Can't create <$ARGV[1]> for output!\n";
-binmode $txtfile;    # Ensure no auto-conversion of '\n' to '\r\n' on Windows.
 
 
 #
@@ -716,6 +713,5 @@ $content =~ s/(&)(amp|apos|gt|lt|quot)(;)/$escChrs{lc $2}/iog;
 # Write the extracted and converted text contents to output.
 #
 
-print $txtfile $content;
-close $txtfile;
+print $content;
 
