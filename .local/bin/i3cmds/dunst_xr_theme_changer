@@ -251,7 +251,9 @@ user_xr_color_conf_content+="$(printf '%s\n' "${conf[@]}")"
 
 printf '%s\n' "$user_xr_color_conf_content" > "$user_xr_color_conf"
 
-envsubst < $user_conf > $user_xr_color_conf
+envsubst < "$user_xr_color_conf" > "$user_xr_color_conf.tmp"
+cat "$user_xr_color_conf.tmp" > "$user_xr_color_conf"
+rm "$user_xr_color_conf.tmp"
 
 printf '"%s" updated successfully.\n' "$user_xr_color_conf"
 
