@@ -158,7 +158,8 @@ set clipboard+=unnamedplus
 " Javascript
 	autocmd FileType javascript inoremap <leader>p console.log()<Left>
 
-	autocmd FileType javascript inoremap <leader>for for(let i=0; i<<++>; i++){<CR><++><CR>}<Up><Up>
+	autocmd FileType javascript inoremap <leader>fori for(let i=0; i<<++>; i++){<CR><++><CR>}<Up><Up>
+	autocmd FileType javascript inoremap <leader>forj for(let j=0; j<<++>; j++){<CR><++><CR>}<Up><Up>
 
 	autocmd FileType javascript inoremap <leader>func function <++>(<++>){<CR><++><CR>}<Up><Up>
 
