@@ -24,7 +24,7 @@ alias ka="killall" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi" \
-	yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
+	yt="youtube-dl --add-metadata -i -o '%(title)s-%(upload_date)s.%(ext)s'" \
 	yta="youtube-dl --add-metadata -f 140" \
 	YT="youtube-viewer" \
 	subdl="subdl -i" \
