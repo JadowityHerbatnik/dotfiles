@@ -1,7 +1,7 @@
 [global]
     monitor = 0
     follow = keyboard
-    geometry = "350x5-5+24"
+    geometry = "350x5-10+30"
     indicate_hidden = yes
     shrink = yes
     transparency = 0
@@ -11,6 +11,7 @@
     horizontal_padding = 8
     frame_width = 3
     frame_color = "#282828"
+		corner_radius = 10
 
     # Define a color for the separator.
     # possible values are:
@@ -54,7 +55,7 @@
     sticky_history = yes
     history_length = 20
     dmenu = /usr/local/bin/dmenu -p dunst:
-    browser = /usr/bin/chromium -new-tab
+    browser = $BROWSER
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
