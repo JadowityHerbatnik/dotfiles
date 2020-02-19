@@ -24,17 +24,17 @@ pickmusic(){ \
 }
 cast(){ \
 		if [ "$2" = "It's music, don't ask me for subtitles man" ]; then
-			$TERMINAL "$castpath" "$1"
+			$TERMINAL -e "$castpath" "$1"
 		elif [ "$(ifsub)" = "Automatic" ]; then
-			$TERMINAL "$castpath" "$1"
+			$TERMINAL -e "$castpath" "$1"
 		else
-			$TERMINAL "$castpath" "$1" --subtitles "$(subtitles)"
+			$TERMINAL -e "$castpath" "$1" --subtitles "$(subtitles)"
 		fi
 }
 
 case $choice in
-	Desktop) $TERMINAL "$mkpath" --hijack --video -s --screencast --resolution "$res" ;;
-	YouTube) $TERMINAL "$mkpath" --hijack --control --video -s -y "$(xclip -o)" ;;
+	Desktop) $TERMINAL -e "$mkpath" --hijack --video -s --screencast --resolution "$res" ;;
+	YouTube) $TERMINAL -e "$mkpath" --hijack --control --video -s -y "$(xclip -o)" ;;
 	Source\ URL/Torrent) cast "$(xclip -o)" ;;
 	Local\ Video) cast "$(pickvideo)" ;;
 	Local\ Music) cast "$(pickmusic)" "It's music, don't ask me for subtitles man" ;;
