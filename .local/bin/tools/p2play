@@ -6,4 +6,4 @@ subtitles(){ \
 
 torrent="$(xclip -o)"
 
-$TERMINAL peerflix --mpv $torrent -t "$(subtitles)" -l
+$TERMINAL -e peerflix --mpv "$torrent" -t "$(subtitles)" -l
