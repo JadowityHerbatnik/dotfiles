@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 alias ka="killall" \
+	lsblk="lsblk -o +vendor,model,label" \
 	bts="blueman-sendto --device=D8:63:75:1A:5E:02" \
 	btt="bluetoothtoggle" \
 	mkd="mkdir -pv" \
