@@ -102,7 +102,7 @@ set clipboard+=unnamedplus
 "	map <leader>s :!clear && shellcheck %<CR>
 
 " Replace all is aliased to S.
-	nnoremap S :%s///g<Left><Left><Left>
+	nnoremap S :%s///gc<Left><Left><Left><Left>
 
 " For local replace
 	nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
