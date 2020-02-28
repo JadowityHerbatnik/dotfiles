@@ -5,6 +5,8 @@ super + d
 	dmenu_run
 super + r
 	$TERMINAL -e $FILE
+super + v
+	$TERMINAL -e $EDITOR
 super + e
 	$TERMINAL -e neomuttwrapper
 super + shift + e
@@ -78,7 +80,7 @@ XF86MonBrightnessUp
 	light -A 5; pkill -RTMIN+4 i3blocks
 super + alt + j
 	brightnesscontrol
-super + v
+super + shift + v
 	qrselection
 
 # Recording
