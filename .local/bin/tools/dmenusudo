@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-dmenu -P -p "[sudo] enter user password"
+dmenu -P -p "[sudo] enter user password" <&-
