@@ -51,8 +51,11 @@ set clipboard+=unnamedplus
 	set number relativenumber
 	set tabstop=2
 	set shiftwidth=2
+	set hlsearch
 	colorscheme koehler
 
+" Press Escape to stop highlighting matching patterns
+	nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 
 " Deoplete settings
 	let g:deoplete#enable_at_startup = 1
