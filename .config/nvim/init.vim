@@ -194,9 +194,9 @@ set clipboard+=unnamedplus
 	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 	map <leader><leader> <Esc>/<++><Enter>"_c4l
 
-" Match the next empty single or double quotation marks
-	map <leader>' <Esc>/\v""\|''<CR>ci"
-	inoremap <leader>' <Esc>/\v""\|''<CR>ci"
+" Append after the next quotation mark
+	map <leader>' <Esc>/\v"\|'<CR>a
+	inoremap <leader>' <Esc>/\v"\|'<CR>a
 
 " Match the end of the next bracket
 	map <leader>/ <Esc>/[\]\)\}\>]<CR>a
