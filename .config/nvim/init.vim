@@ -101,6 +101,10 @@ set clipboard+=unnamedplus
 " Check file in shellcheck:
 "	map <leader>s :!clear && shellcheck %<CR>
 
+" Resize split windows
+  nnoremap <silent> <A->> :vertical resize +10<CR>
+  nnoremap <silent> <A-<> :vertical resize -10<CR>
+
 " Replace all is aliased to S.
 	nnoremap S :%s///gc<Left><Left><Left><Left>
 
