@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 selection="$(xclip -o -selection clipboard)"
 notify-send "Launching YouTube video" "$selection"
-straw-viewer $selection
+youtube-viewer $selection
