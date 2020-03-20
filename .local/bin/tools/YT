@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 selection="$(xclip -o -selection clipboard)"
 notify-send "Launching YouTube video" "$selection"
-youtube-viewer $selection
+youtube-viewer --resolution=720p --auto-captions $selection
