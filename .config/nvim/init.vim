@@ -150,7 +150,8 @@ set clipboard+=unnamedplus
 " Autoformatting for various languages
 " ------------------------------------
 
-	autocmd BufWritePre,InsertLeave *.html,*.scss,*.css,*.js,*.jsx,*.json Neoformat
+	nnoremap <leader>; :Neoformat<CR><Esc>
+	autocmd BufWritePre *.html,*.scss,*.css,*.js,*.jsx,*.json Neoformat
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
 	autocmd VimLeave *.tex !texclear %
@@ -194,20 +195,26 @@ set clipboard+=unnamedplus
 " Javascript
 	autocmd FileType javascript inoremap <leader>p console.log()<Left>
 
-	autocmd FileType javascript inoremap <leader>fori for(let i=0; i<<++>; i++){<CR><++><CR>}<Up><Up>
-	autocmd FileType javascript inoremap <leader>forj for(let j=0; j<<++>; j++){<CR><++><CR>}<Up><Up>
+	autocmd FileType javascript inoremap <leader>fori for(let i=0; i<<++>; i++){<CR><++><CR>}<Up><Up><Esc>/<++><Enter>"_c4l
+	autocmd FileType javascript inoremap <leader>forj for(let j=0; j<<++>; j++){<CR><++><CR>}<Up><Up><Esc>/<++><Enter>"_c4l
 
-	autocmd FileType javascript inoremap <leader>func function <++>(<++>){<CR><++><CR>}<Up><Up>
+	autocmd FileType javascript inoremap <leader>if if (<++>){<CR><++><CR>}<Up><Up><Esc>/<++><Enter>"_c4l
+	autocmd FileType javascript inoremap <leader>el if (<++>){<CR><++><CR>} else if (<++>) {<CR><++><CR>}<Up><Up><Up><Up><Esc>/<++><Enter>"_c4l
 
-	autocmd FileType javascript inoremap <leader>arr ()=><++><Esc>Ba
+	autocmd FileType javascript inoremap <leader>func function <++>(<++>){<CR><++><CR>}<Up><Up><Esc>/<++><Enter>"_c4l
+
+	autocmd FileType javascript inoremap <leader>arr (<++>) => <++><Esc>0/<++><Enter>"_c4l
 
 	autocmd FileType javascript inoremap <leader>imp import <++> from "<++>";<Esc>I
+
+	autocmd FileType javascript inoremap <leader>di dispatch( { type: "" } )<Esc>F"i
 
 
 " Some braces formatting
 	inoremap () ()<Left>
 	inoremap [] []<Left>
 	inoremap {} {}<Left>
+	inoremap <> <><Left>
 	inoremap "" ""<Left>
 	inoremap '' ''<Left>
 	inoremap `` ``<Left>
@@ -221,16 +228,16 @@ set clipboard+=unnamedplus
 	map <leader><leader> <Esc>/<++><Enter>"_c4l
 
 " Append after the next quotation mark
-	map <leader>' <Esc>/\v"\|'<CR>a
-	inoremap <leader>' <Esc>/\v"\|'<CR>a
+	nnoremap <leader>' <Esc>f"a
+	inoremap <leader>' <Esc>f"a
 
-" Match the end of the next bracket
-	map <leader>/ <Esc>/[\]\)\}\>]<CR>a
-	inoremap <leader>/ <Esc>/[\]\)\}\>]<CR>a
+" Append after the end of the current bracket
+	nnoremap <leader>/ <Esc>%%a
+	inoremap <leader>/ <Esc>%%a
 
-" Match the beginning of the next bracket
-	map <leader>. <Esc>/[\[\(\{\<]<CR>a
-	inoremap <leader>. <Esc>/[\[\(\{\<]<CR>a
+" Append after the beginning of the current bracket
+	nnoremap <leader>. <Esc>%a
+	inoremap <leader>. <Esc>%a
 
 " Save file as sudo on files that require root permission
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
