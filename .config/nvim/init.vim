@@ -49,35 +49,47 @@ Plug 'vifm/vifm.vim'
 Plug 'kovetskiy/sxhkd-vim'
 call plug#end()
 
-set bg=light
+set background=dark
 set go=a
 set mouse=a
-set nohlsearch
+" set nohlsearch
 set clipboard+=unnamedplus
-
 
 " Some basics:
 	nnoremap c "_c
 	set nocompatible
 	filetype plugin indent on
 	set omnifunc=syntaxcomplete#Complete
-	syntax on
+	syntax enable
 	set encoding=utf-8
 	set number relativenumber
 	set tabstop=2
 	set shiftwidth=2
 	set hlsearch
-	colorscheme koehler
+	set termguicolors
+	set t_Co=256
+	" let g:solarized_termcolors=256
+	" colorscheme flattened_dark
+	colorscheme gruvbox
+	" colorscheme noctu
+	" let g:solarized_termtrans = 1
+
+	let g:gruvbox_italic = 1
+	let g:gruvbox_contrast_dark = "soft"
 
 " Press Escape to stop highlighting matching patterns
 	nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 
+" Speed up CtrlP
+  let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
 " Deoplete settings
 	let g:deoplete#enable_at_startup = 1
-	inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+	" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+	" inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
 
 " Reload vim
-	nnoremap <leader>r <Esc>:source ~/.vimrc<CR>
+	nnoremap <leader>s <Esc>:source ~/.vimrc<CR>
 
 " Enable autocompletion:
 	set wildmode=longest,list,full
