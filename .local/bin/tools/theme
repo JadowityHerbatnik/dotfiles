@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+theme=$(printf "Solarized\\nGruvbox" | dmenu -p "choose theme")
+
+change(){
+	sed -i -E "s/colorscheme\s(gruvbox|flattened_dark)/colorscheme "$1"/g" $HOME/.config/nvim/init.vim
+	}
+case $theme in
+	Solarized) change "flattened_dark" && wal --theme base16-solarized && xalacritty ;;
+	Gruvbox) change "gruvbox" && wal --theme base16-gruvbox-soft && xalacritty ;;
+esac
+
