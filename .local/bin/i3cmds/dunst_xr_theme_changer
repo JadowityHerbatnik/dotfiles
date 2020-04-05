@@ -108,7 +108,7 @@ xrdb_get () {
 declare -A theme_attr_dict=(
    #["global-font"]="$(xrdb_get 'font' 'Monospace') $(xrdb_get '*.font_size:' '11')"
    #["global-frame_width"]="$(xrdb_get 'border_width' '1')"
-    ["global-frame_color"]="\"$(xrdb_get 'color1' '#65737e')\""
+    ["global-frame_color"]="\"$(xrdb_get 'color4' '#65737e')\""
 
     ["urgency_low-background"]="\"$(xrdb_get 'color0' '#2b303b')\""
     ["urgency_low-foreground"]="\"$(xrdb_get 'color7' '#65737e')\""
@@ -116,7 +116,7 @@ declare -A theme_attr_dict=(
 
     ["urgency_normal-background"]="\"$(xrdb_get 'color0' '#2b303b')\""
     ["urgency_normal-foreground"]="\"$(xrdb_get 'color7' '#a3be8c')\""
-    ["urgency_normal-frame_color"]="\"$(xrdb_get 'color1' '#a3be8c')\""
+    ["urgency_normal-frame_color"]="\"$(xrdb_get 'color4' '#a3be8c')\""
 
    #["urgency_critical-background"]="\"$(xrdb_get 'color0' '#2b303b')\""
    #["urgency_critical-foreground"]="\"$(xrdb_get 'color7' '#bf616a')\""
