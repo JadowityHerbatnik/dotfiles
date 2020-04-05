@@ -5,7 +5,7 @@ choice=$(printf "Messenger\\nWhatsApp\\nDiscord\\nBip\\nNetflix" | dmenu -i -p "
 case $choice in
 	Messenger) brave --app=http://messenger.com ;;
 	WhatsApp) brave --app=http://web.whatsapp.com ;;
-	Discord) chromium --app=https://discordapp.com/channels/@me ;;
+	Discord) brave --app=https://discordapp.com/channels/@me ;;
 	Bip) chromium --app=http://web.bip.com ;;
 	Netflix) chromium --app=http://netflix.com ;;
 esac
