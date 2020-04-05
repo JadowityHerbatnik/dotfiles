@@ -17,4 +17,4 @@ esac
 
 number=$(pacman -Qu | grep -v "\[ignored\]" | wc -l )
 (( number == 0 )) && exit
-echo $number
+echo 📦 $number

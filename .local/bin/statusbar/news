@@ -17,5 +17,5 @@ esac
 number=$(cat /tmp/newsupdate 2>/dev/null || echo "$(newsboat -x print-unread | awk '{ print $1}' )")
 # cat ~/.config/newsboat/.update 2>/dev/null
 (( number == 0 )) && exit
-echo $number
+echo 📰 $number
 
