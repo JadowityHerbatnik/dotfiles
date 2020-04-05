@@ -35,7 +35,7 @@ number_of_translations = 5
 number_of_translations_to_save = 50
 
 # gtts|pons|forvo # gtts is google-text-to-speech
-listen_via = 'gtts'
+listen_via = 'pons'
 
 # path to the offline dictionary
 tab_divided_dict_fname = '~/d/python_shit/mpv/scripts/z.dict'
@@ -48,7 +48,7 @@ extend_subs_duration2max_B = False
 # limit extension duration in seconds; N == 0: do not limit
 extend_subs_duration_limit_sec = 33
 # show interSubs only in fullscreen
-hide_when_not_fullscreen_B = True
+hide_when_not_fullscreen_B = False
 
 # interval between checking for the next subtitle; in seconds
 update_time = .01
