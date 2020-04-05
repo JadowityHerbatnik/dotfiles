@@ -14,8 +14,7 @@
 # it fails to get colors from Xresources.
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color4 #285577
-set_from_resource $id i3wm.color3 #2e9ef4
-set $alpha 0.7
+set_from_resource $id i3wm.color5 #2e9ef4
 
 
 # class                 border  backgr. text indicator child_border
@@ -50,9 +49,6 @@ for_window [instance="dropdown_*"] move position center
 
 bar {
 	font pango:System-ui Bold 9
-	bindsym button1 nop
-	bindsym button4 nop
-	bindsym button5 nop
 	status_command i3blocks
 	position top
 	mode dock
@@ -222,7 +218,7 @@ bindsym $mod+Shift+Right 	move right
 
 
 
-exec xrdb -merge ~/.Xdefaults
-exec redshift -l 52.7:21.6 -t 5700:3300 -g 0.8 -m randr -v
-exec llk
+# exec xrdb -merge ~/.Xdefaults
+# exec redshift -l 52.7:21.6 -t 5700:3300 -g 0.8 -m randr -v
+# exec llk
 # exec_always --no-startup-id notify-send -i ~/.local/share/larbs/larbs.png 'Welcome to LARBS:' 'Press Super+F1 for the manual.' -t 10000
