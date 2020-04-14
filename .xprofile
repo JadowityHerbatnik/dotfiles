@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 
 setbg &		# Set the background
+xrdb -merge ~/.Xdefaults &
+llk &
+redshift -l 52.7:21.6 -t 6500:3300 -g 0.8 -m randr -v &
 pywalinit &	# sets color scheme and initializes dunst for notifications
 sxhkd &	# Bind keys
 # Switch to US international with Caps as Mod/Escape
