@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
-killall compton && compton --config ~/.config/compton/compton.conf &
+pgrep compton && killall compton
+compton --config ~/.config/compton/compton.conf &
 exit
