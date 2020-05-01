@@ -1,4 +1,9 @@
 #!/usr/bin/env sh
 
-youtube-comment-scraper "$1" | cat | grep -e "{\|\"author\"\|\"text\"\|\"likes\"\|},$" | sed -E 's/\{|\},//g' | highlight -S json --out-format=ansi | less
+file=/tmp/"$1".json
 
+youtube-comment-scraper "$1" | grep -e "{\|\"author\"\|\"text\"\|\"likes\"\|},$" | sed -E 's/\{|\},//g' > $file
+
+nvim $file
+
+rm $file
