@@ -18,6 +18,7 @@ alias ka="killall" \
 	gch="git checkout" \
 	gd="git diff" \
 	gp="git push" \
+  gb="git branch" \
 	nrd="npm run develop" \
 	trem="transmission-remote" \
 	e="$EDITOR" \
