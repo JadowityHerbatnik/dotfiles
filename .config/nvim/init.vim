@@ -84,7 +84,7 @@ set clipboard+=unnamedplus
   let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Deoplete settings
-	let g:deoplete#enable_at_startup = 1
+	" let g:deoplete#enable_at_startup = 1
 	" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 	" inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
 
