@@ -162,8 +162,15 @@ set clipboard+=unnamedplus
 " Autoformatting for various languages
 " ------------------------------------
 
+	let g:neoformat_typescriptreact_prettier = {
+        \ 'exe': 'prettier',
+        \ 'args': ['--stdin', '--stdin-filepath', '"%:p"', '--parser', 'typescript'],
+        \ 'stdin': 1
+        \ }
+    let g:neoformat_enabled_typescriptreact = ['tsfmt', 'prettier']
+
 	nnoremap <leader>; :Neoformat<CR><Esc>
-	autocmd BufWritePre *.html,*.scss,*.css,*.js,*.jsx,*.json Neoformat
+	autocmd BufWritePre *.html,*.scss,*.css,*.js,*.jsx,*.ts,*.tsx,*.json Neoformat
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
 	autocmd VimLeave *.tex !texclear %
