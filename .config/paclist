@@ -100,6 +100,7 @@ pam-gnupg-git
 patch
 pavucontrol
 pdfjs
+pdftk
 perl-image-exiftool
 pkgconf
 pulseaudio-alsa
@@ -114,7 +115,7 @@ python-pip
 python-pywal
 python-selenium
 python-ueberzug
-qrencode
+qtox
 qutebrowser
 ranger
 read-edid
@@ -134,6 +135,7 @@ sxhkd
 sxiv
 syncthing
 task-spooler
+teams
 tldr
 tlp
 tmux
