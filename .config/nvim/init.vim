@@ -1,3 +1,4 @@
+let g:mapleader =","
 
 source $HOME/.config/nvim/init_modules/plugins.vim
 source $HOME/.config/nvim/init_modules/coc.vim
