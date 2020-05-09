@@ -102,6 +102,10 @@ handle_image() {
             convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
             exit 1;;
 
+        # Gif
+          image/gif)
+             ffmpegthumbnailer -i "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" -s 0 && exit 6
+          exit 1;;
         # Image
         image/*)
             local orientation
