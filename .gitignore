@@ -1,4 +1,4 @@
 .local/lib
-.config/nvim
+.config/nvim/plugged
 .config/dunst/dunstrc_xr_colors
 .config/wall.png
