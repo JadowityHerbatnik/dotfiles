@@ -1,12 +1,13 @@
 #!/usr/bin/env sh
 
-choice=$(printf "Messenger\\nWhatsApp\\nDiscord\\nBip\\nNetflix" | dmenu -i -p "Pick WebApp")
+choice=$(printf "Messenger\\nWhatsApp\\nDiscord\\nSlack\\nBip\\nNetflix" | dmenu -i -p "Pick WebApp")
 
 case $choice in
 	Messenger) brave --app=http://messenger.com ;;
 	WhatsApp) brave --app=http://web.whatsapp.com ;;
 	Discord) brave --app=https://discordapp.com/channels/@me ;;
-	Bip) chromium --app=http://web.bip.com ;;
-	Netflix) chromium --app=http://netflix.com ;;
+  Slack) brave --app=https://ebrandservicespoland.slack.com ;;
+	Bip) brave --app=http://web.bip.com ;;
+	Netflix) brave --app=http://netflix.com ;;
 esac
 
