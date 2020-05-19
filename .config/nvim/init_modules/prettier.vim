@@ -7,6 +7,6 @@
     let g:neoformat_enabled_typescriptreact = ['tsfmt', 'prettier']
 
 
-  nnoremap <leader>; :Neoformat<CR><Esc>
-	autocmd BufWritePre *.html,*.scss,*.css,*.js,*.jsx,*.ts,*.tsx,*.json Neoformat
+  nnoremap <leader>; :Format<CR><Esc>
+	autocmd BufWritePre *.html,*.scss,*.css,*.js,*.jsx,*.ts,*.tsx,*.json Format
 
