@@ -34,6 +34,7 @@ gaps inner 0
 gaps outer 0
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
+floating_modifier Mod4
 
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.
