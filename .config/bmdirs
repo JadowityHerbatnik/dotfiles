@@ -7,5 +7,6 @@ pp	~/Pictures
 P	~/Programming
 vv	~/Videos
 cf	~/.config
+cfnv ~/.config/nvim/
 sc	~/.local/bin
 mn	/mnt
