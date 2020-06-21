@@ -12,6 +12,7 @@ source $HOME/.config/nvim/init_modules/emmet.vim
 source $HOME/.config/nvim/init_modules/nerdtree.vim
 source $HOME/.config/nvim/init_modules/autocompiles.vim
 source $HOME/.config/nvim/init_modules/general.vim
+source $HOME/.config/nvim/init_modules/git.vim
 
 " Some basics:
   set background=dark

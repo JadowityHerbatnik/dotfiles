@@ -4,7 +4,6 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " coc config
 let g:coc_global_extensions = [
   \ 'coc-snippets',
-  \ 'coc-pairs',
   \ 'coc-tsserver',
   \ 'coc-eslint',
   \ 'coc-prettier',
