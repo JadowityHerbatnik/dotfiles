@@ -1,46 +1,53 @@
 #!/usr/bin/env sh
 alias ka="killall" \
-	lsblk="lsblk -o +vendor,model,label" \
-	bts="blueman-sendto --device=D8:63:75:1A:5E:02" \
-	btt="bluetoothtoggle" \
-	mkd="mkdir -pv" \
-	mpv="mpv --osd-fractions --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
-	calcurse="calcurse -D ~/.config/calcurse" \
-	magit="nvim -c MagitOnly" \
-	p="sudo pacman" \
-	SS="sudo systemctl" \
-	smi="sudo make install" \
-	smu="sudo make uninstall" \
-	f="$FILE" \
-	g="git" \
-	ga="git add" \
-	gc="git commit" \
-	gch="git checkout" \
-	gd="git diff" \
-	gp="git push" \
+  lsblk="lsblk -o +vendor,model,label" \
+  bts="blueman-sendto --device=D8:63:75:1A:5E:02" \
+  btt="bluetoothtoggle" \
+  mkd="mkdir -pv" \
+  mpv="mpv --osd-fractions --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
+  calcurse="calcurse -D ~/.config/calcurse" \
+  magit="nvim -c MagitOnly" \
+  p="sudo pacman" \
+  SS="sudo systemctl" \
+  smi="sudo make install" \
+  smu="sudo make uninstall" \
+  f="$FILE" \
+  g="git" \
+  ga="git add" \
+  gc="git commit" \
+  gca="git commit --amend" \
+  gl="git log" \
+  gst="git stash" \
+  gstp="git stash pop" \
+  gsta="git stash apply" \
+  gch="git checkout" \
+  gd="git diff" \
+  gp="git push" \
   gb="git branch" \
-	nrd="npm run develop" \
-	trem="transmission-remote" \
-	e="$EDITOR" \
-	x="sxiv -ft *" \
-	sdn="sudo shutdown -h now" \
-	gua="git remote | xargs -L1 git push --all" \
-	gs="tac <(git status)" \
-	ls="ls -hN --color=auto --group-directories-first" \
-	grep="grep --color=auto" \
-	diff="diff --color=auto" \
-	ccat="highlight --out-format=ansi" \
-	yt="youtube-dl --add-metadata -i -o '%(title)s-%(upload_date)s.%(ext)s'" \
-	yta="youtube-dl --add-metadata -f 140" \
-	YT="youtube-viewer --resolution=720p --auto-captions" \
-	subdl="subdl -i" \
-	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
-	upc="sudo pacman -Syu; pkill -RTMIN+8 i3blocks" \
-	lsp="pacman -Qett --color=always | less" \
-	ffmpeg="ffmpeg -hide_banner" \
-	l='eval "$(fc -ln -1) | less"' \
-	v='eval "$(fc -ln -1) | xargs $EDITOR"' \
-	ipfsgen='ipfs key gen --type=rsa --size=2048' \
+  gr="git restore" \
+  grb="git rebase" \
+  nrd="npm run develop" \
+  trem="transmission-remote" \
+  e="$EDITOR" \
+  x="sxiv -ft *" \
+  sdn="sudo shutdown -h now" \
+  gua="git remote | xargs -L1 git push --all" \
+  gs="tac <(git status)" \
+  ls="ls -hN --color=auto --group-directories-first" \
+  grep="grep --color=auto" \
+  diff="diff --color=auto" \
+  ccat="highlight --out-format=ansi" \
+  yt="youtube-dl --add-metadata -i -o '%(title)s-%(upload_date)s.%(ext)s'" \
+  yta="youtube-dl --add-metadata -f 140" \
+  YT="youtube-viewer --resolution=720p --auto-captions" \
+  subdl="subdl -i" \
+  ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
+  upc="sudo pacman -Syu; pkill -RTMIN+8 i3blocks" \
+  lsp="pacman -Qett --color=always | less" \
+  ffmpeg="ffmpeg -hide_banner" \
+  l='eval "$(fc -ln -1) | less"' \
+  v='eval "$(fc -ln -1) | xargs $EDITOR"' \
+  ipfsgen='ipfs key gen --type=rsa --size=2048' \
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 
