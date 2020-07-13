@@ -546,6 +546,11 @@
 #	find
 #def_key "f"
 #	find_item_forward
+def_key "K"
+ move_selected_items_up
+
+def_key "J"
+ move_selected_items_down
 
 def_key "+"
     show_clock
