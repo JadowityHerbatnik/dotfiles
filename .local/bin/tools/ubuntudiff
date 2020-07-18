@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+path=$(readlink -f $1)
+ubuntupath=$( echo $path | sed "s|$HOME|$HOME/ubuntu-dotfiles|" )
+
+diff --color $path $ubuntupath
+
+
