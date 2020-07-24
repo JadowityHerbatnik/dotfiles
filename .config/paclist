@@ -25,6 +25,7 @@ cronie
 dhcpcd
 dialog
 dmidecode
+docker-compose
 dos2unix
 dosfstools
 dunst
@@ -58,6 +59,7 @@ jdk11-openjdk
 jfsutils
 jsoncpp
 lf-bin
+libnotify
 libreoffice-fresh
 light
 linux-firmware
@@ -114,7 +116,6 @@ python-numpy
 python-pip
 python-pywal
 python-selenium
-python-ueberzug
 qtox
 qutebrowser
 ranger
@@ -135,7 +136,7 @@ sxhkd
 sxiv
 syncthing
 task-spooler
-teams
+the_silver_searcher
 tldr
 tlp
 tmux
@@ -148,6 +149,7 @@ ttf-inconsolata
 ttf-joypixels
 ttf-linux-libertine
 ttf-symbola-free
+ueberzug
 ufw
 unclutter
 unrar
@@ -158,7 +160,6 @@ usb_modeswitch
 vi
 vifm
 virtualbox
-vscodium-bin
 w3m
 wget
 x11vnc
