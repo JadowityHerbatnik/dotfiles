@@ -13,6 +13,8 @@ key_bindings:
 - { key: Up, mods: Alt|Shift, action: ScrollPageUp }
 - { key: Down, mods: Alt|Shift, action: ScrollPageDown }
 
+cursor:
+  vi_mode_style: Block
 
 # Colors
 colors:
