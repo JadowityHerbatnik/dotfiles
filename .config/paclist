@@ -5,7 +5,6 @@ alacritty
 alsa-utils
 arandr
 atool
-autoconf
 automake
 base
 bashburn
@@ -59,7 +58,6 @@ jdk11-openjdk
 jfsutils
 jsoncpp
 lf-bin
-libnotify
 libreoffice-fresh
 light
 linux-firmware
@@ -111,7 +109,6 @@ pulsemixer
 pycharm-community-edition
 pypy3
 python-beautifulsoup4
-python-lxml
 python-numpy
 python-pip
 python-pywal
@@ -148,12 +145,12 @@ ttf-font-awesome
 ttf-inconsolata
 ttf-joypixels
 ttf-linux-libertine
+ttf-nerd-fonts-symbols-mono
 ttf-symbola-free
 ueberzug
 ufw
 unclutter
 unrar
-unzip
 urlscan
 urlview
 usb_modeswitch
@@ -176,6 +173,7 @@ xorg-xev
 xorg-xinit
 xorg-xkill
 xorg-xwininfo
+xsel
 xwallpaper
 yay
 youtube-dl
@@ -184,3 +182,4 @@ zathura-djvu
 zathura-pdf-mupdf
 zip
 zsh-syntax-highlighting
+zsh-system-clipboard-git
