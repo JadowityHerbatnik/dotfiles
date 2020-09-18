@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
 
 subtitles(){ \
-	echo "$(find ~/Videos ~/Downloads -maxdepth 5 | grep .srt | dmenu -fn 7 -i -l 10 )"
+	echo "$(find ~/Videos ~/Downloads -maxdepth 5 -type f -name "*.srt" | dmenu -fn 7 -i -l 10 )"
 }
 
-torrent="$(xclip -o)"
+torrent="$1"
+if [ -z "$1" ]; then torrent="$(xclip -o)"; fi
 
 $TERMINAL -e peerflix --mpv "$torrent" -t "$(subtitles)" -l
