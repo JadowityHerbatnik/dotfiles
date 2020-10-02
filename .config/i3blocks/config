@@ -46,10 +46,6 @@ interval=3
 interval=15
 #label=💻
 
-#[temperature]
-#interval=15
-#label=🌡
-
 [volume]
 interval=once
 signal=10
