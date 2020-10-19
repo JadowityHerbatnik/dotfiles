@@ -10,7 +10,7 @@ super + v
 super + e
 	$TERMINAL -e neomuttwrapper
 super + shift + e
-	mailsync
+	mw sync
 super + m
 	$TERMINAL -e ncmpcpp
 super + n
