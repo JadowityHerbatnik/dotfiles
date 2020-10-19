@@ -13,6 +13,8 @@ super + shift + e
 	mw sync
 super + m
 	$TERMINAL -e ncmpcpp
+super + M
+	$TERMINAL -e $EDITOR -c ":source ~/.vim_session.vim"
 super + n
 	$TERMINAL -e newswrapper
 super + i
