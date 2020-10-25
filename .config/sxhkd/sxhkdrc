@@ -10,7 +10,7 @@ super + v
 super + e
 	$TERMINAL -e neomuttwrapper
 super + shift + e
-	mw sync
+	mw -Y
 super + m
 	$TERMINAL -e ncmpcpp
 super + M
