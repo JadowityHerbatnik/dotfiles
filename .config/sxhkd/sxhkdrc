@@ -83,7 +83,7 @@ XF86MonBrightnessUp
 super + alt + j
 	brightnesscontrol
 super + shift + v
-	qrselection
+	cliplay
 
 # Recording
 # Take screenshot

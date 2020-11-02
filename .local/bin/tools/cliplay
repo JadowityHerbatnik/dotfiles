@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+url=$(xclip -o -selection clipboard)
+notify-send "Launching $url"
+mpv "$url"
+
