@@ -15,7 +15,9 @@ bluez-utils
 brave-bin
 bspwm
 calcurse
+calibre
 catdoc
+chafa
 chromium
 chromium-widevine
 clamav
@@ -26,7 +28,6 @@ dialog
 dmidecode
 docker-compose
 dos2unix
-dosfstools
 dunst
 dvd+rw-tools
 ed
@@ -65,13 +66,11 @@ logkeys-git
 logrotate
 lshw
 lsof
-lvm2
 lynx
 maim
 make
 man-db
 man-pages
-mdadm
 mediainfo
 minetest
 mkchromecast
@@ -91,7 +90,6 @@ newsboat
 nodejs
 noto-fonts-emoji
 ntfs-3g
-obexftp
 odt2txt
 os-prober
 p7zip
@@ -108,7 +106,6 @@ pulseaudio-bluetooth
 pulsemixer
 pycharm-community-edition
 pypy3
-python-beautifulsoup4
 python-numpy
 python-pip
 python-pywal
@@ -119,6 +116,7 @@ ranger
 read-edid
 redshift
 reiserfsprogs
+rsync
 rxvt-unicode
 s-nail
 sc-im
@@ -165,7 +163,6 @@ xcompmgr
 xdotool
 xf86-input-synaptics
 xf86-video-intel
-xfsprogs
 xorg-appres
 xorg-server
 xorg-xbacklight
