@@ -51,7 +51,7 @@ super + shift + x
 super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A shutdown -r now"
 super + x
-	mpc pause; pauseallmpv; i3lock -e -f -c 202020; xset dpms force off
+	mpc pause; pauseallmpv; i3lock -e -f -i ~/.config/wall.png; xset dpms force off
 XF86Launch1
 	xset dpms force off
 XF86AudioMute
