@@ -2,7 +2,7 @@
 
 file=/tmp/"$1".json
 
-youtube-comment-scraper "$1" | grep -e "{\|\"author\"\|\"text\"\|\"likes\"\|},$" | sed -E 's/\{|\},//g' > $file
+youtube-scrapy --youtubeid "$1" --output "$file"
 
 nvim $file
 
