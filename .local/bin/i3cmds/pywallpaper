@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+choice=$(printf "colorz\\ncolorthief\\nhaishoku\\nwal"| dmenu -i -p "Choose pywal backend")
+
+wal -c
+wal -i ~/.config/wall.png --backend "$choice"  && applycolorscheme
+exit
+

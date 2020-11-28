@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+color=$(wal --theme | awk '/^ - / {print $2}' | dmenu -l 20 -p "Pick colorscheme")
+wal --theme "$color"
+applycolorscheme
