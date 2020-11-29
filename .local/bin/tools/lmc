@@ -41,4 +41,4 @@ i.e. \`lmc r\` for \`lmc restart\`.
 EOF
 esac
 
-pkill -RTMIN+10 i3blocks
+pkill -RTMIN+10 ${STATUSBAR:-dwmblocks}

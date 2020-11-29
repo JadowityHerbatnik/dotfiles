@@ -8,7 +8,7 @@ super + r
 super + v
 	$TERMINAL -e $EDITOR
 super + e
-	$TERMINAL -e neomuttwrapper
+	$TERMINAL -e neomutt && pkill -RTMIN+12 $STATUSBAR
 super + shift + e
 	mw -Y
 super + m
@@ -16,28 +16,17 @@ super + m
 super + M
 	$TERMINAL -e $EDITOR -c ":source ~/.vim_session.vim"
 super + n
-	$TERMINAL -e newswrapper
-super + i
+	$TERMINAL -e newsboat && pkill -RTMIN+6 $STATUSBAR
+super + R
 	$TERMINAL -e htop
-super + y
-	$TERMINAL -e calcurse -D ~/.config/calcurse
-super + shift + a
-	$TERMINAL -e pulsemixer; pkill -RTMIN+10 i3blocks
+# super + y
+# 	$TERMINAL -e calcurse -D ~/.config/calcurse
 super + shift + c
 	camtoggle
 super + shift + w
 	webapps
 super + w
 	$BROWSER
-super + shift + g
-	gimp
-#Dropdown programs
-super + a
-	ddspawn dropdowncalc "-A 0.7 -f mono:pixelsize=24"
-super + u
-	ddspawn tmuxdd "-A 0.7"
-super + g
-	ddspawn translate "-A 0.7"
 
 # Et cetera...
 super + grave
@@ -50,6 +39,8 @@ super + shift + x
 	prompt "Shutdown computer?" "sudo -A shutdown -h now"
 super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A shutdown -r now"
+super + shift + Escape
+	prompt 'Leave dwm?' 'pkill -15 dwm'
 super + x
 	mpc pause; pauseallmpv; i3lock -e -f -i ~/.config/wall.png; xset dpms force off
 XF86Launch1
@@ -77,9 +68,9 @@ XF86AudioPrev
 XF86AudioStop
 	lmc toggle
 XF86MonBrightnessDown
-	light -U 5; pkill -RTMIN+4 i3blocks
+	light -U 5; pkill -RTMIN+13 $STATUSBAR
 XF86MonBrightnessUp
-	light -A 5; pkill -RTMIN+4 i3blocks
+	light -A 5; pkill -RTMIN+13 $STATUSBAR
 super + alt + j
 	brightnesscontrol
 super + shift + v
@@ -129,9 +120,8 @@ super + F1
 # Change display
 super + F3
 	displayselect
-# Hibernate
 super + F4
-	prompt 'Hibernate computer?' 'sudo systemctl suspend'
+	$TERMINAL -e pulsemixer; pkill -RTMIN+10 $STATUSBAR
 # Restart/rescan wifi/eth networks
 super + F5
 	sudo -A systemctl restart NetworkManager
@@ -143,7 +133,7 @@ super + F7
 	td-toggle
 # sync email
 super + F8
-	mailsync
+	mw -Y
 # Mount a USB drive or Android device
 super + F9
 	dmenumount

@@ -8,7 +8,7 @@ cfi	~/.config/i3/config
 cfm	~/.config/mutt/muttrc
 eb	~/Documents/LaTeX/uni.bib
 cv	~/Documents/LaTeX/cv.tex
-cfd	~/.Xdefaults
+cfd	~/.local/src/dwm/config.h
 cfu	~/.config/newsboat/urls
 cfn	~/.config/newsboat/config
 cfmb	~/.config/ncmpcpp/bindings

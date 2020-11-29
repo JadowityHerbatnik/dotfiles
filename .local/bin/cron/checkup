@@ -3,14 +3,14 @@
 
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; export DISPLAY=:0; . $HOME/.profile;
 
-ping -q -c 1 1.1.1.1 > /dev/null || exit
+ping -q -c 1 example.org > /dev/null || exit
 
 notify-send "📦 Repository Sync" "Checking for package updates..."
 
 sudo pacman -Syyuw --noconfirm || notify-send "Error downloading updates.
 
 Check your internet connection, if pacman is already running, or run update manually to see errors."
-pkill -RTMIN+8 i3blocks
+pkill -RTMIN+8 "${STATUSBAR:-dwmblocks}"
 
 if pacman -Qu | grep -v "\[ignored\]"
 then
