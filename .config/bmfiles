@@ -14,7 +14,7 @@ cfn	~/.config/newsboat/config
 cfmb	~/.config/ncmpcpp/bindings
 cfmc	~/.config/ncmpcpp/config
 er	~/Documents/referbib
-cfB	~/.config/i3blocks/config
+cfB	~/.local/src/dwmblocks/config.h
 cfk	~/.config/sxhkd/sxhkdrc
 cfc	~/.config/compton/compton.conf
 cfx	~/.xprofile

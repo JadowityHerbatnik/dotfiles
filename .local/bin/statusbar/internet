@@ -16,5 +16,5 @@ esac
 
 
 # printf "%s %s" "$wifiicon" "$(cat /sys/class/net/e*/operstate | sed "s/down/❎/;s/up/🌐/")"
-printf "%s \n" "$wifiicon"
+printf "%s\n" "$wifiicon"
 

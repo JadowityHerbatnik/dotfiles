@@ -15,7 +15,7 @@ export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenusudo"
 export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export ZDOTDIR="$HOME/.config/zsh"
-export STATUSBAR="i3blocks"
+export STATUSBAR="dwmblocks"
 # less/man colors
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"; a="${a%_}"

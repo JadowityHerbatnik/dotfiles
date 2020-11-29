@@ -11,4 +11,4 @@ case $BLOCK_BUTTON in
 	4) [ "$current" -lt "$((increment+3))" ] && echo 2 > $change; echo $((current-increment)) > $change;;
 	5) [ "$current" -gt "$((max-increment))" ] && echo $max > $change; echo $((current+increment)) > $change;;
 esac
-echo 💡 $currentprc%
+echo 💡$currentprc%
