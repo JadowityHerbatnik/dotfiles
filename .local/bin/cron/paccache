@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 
+source $HOME/.local/bin/cron/setupcron
 sudo pacman -Sc --noconfirm
-
 notify-send "Pacman cache cleared"

@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+source $HOME/.local/bin/cron/setupcron
+/usr/bin/mw -Y

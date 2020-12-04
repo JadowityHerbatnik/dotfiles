@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 
+source $HOME/.local/bin/cron/setupcron
 sudo /usr/bin/updatedb
 notify-send "Locate database updated"

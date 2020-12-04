@@ -2,7 +2,7 @@
 # Set as a cron job to check for new RSS entries for newsboat.
 # If newsboat is open, sends it an "R" key to refresh.
 
-export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; export DISPLAY=:0; . $HOME/.profile;
+source $HOME/.local/bin/cron/setupcron
 
 ping -q -c 1 example.org > /dev/null || exit
 
