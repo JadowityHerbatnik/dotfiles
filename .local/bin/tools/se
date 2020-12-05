@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+file=$(git ls-files | fzf -i)
+[[ -n $file ]] && $EDITOR $file
