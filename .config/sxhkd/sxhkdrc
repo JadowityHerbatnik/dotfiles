@@ -21,6 +21,8 @@ super + R
 	$TERMINAL -e htop
 # super + y
 # 	$TERMINAL -e calcurse -D ~/.config/calcurse
+super + P
+	passmenu
 super + shift + c
 	camtoggle
 super + shift + w
