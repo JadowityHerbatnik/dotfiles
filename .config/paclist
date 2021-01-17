@@ -3,8 +3,10 @@ adobe-source-han-sans-otc-fonts
 adobe-source-han-serif-otc-fonts
 alacritty
 alsa-utils
+android-tools
 arandr
 atool
+autoconf
 automake
 base
 bashburn
@@ -26,13 +28,13 @@ cronie
 dhcpcd
 dialog
 dmidecode
-docker-compose
 dos2unix
 dunst
 dvd+rw-tools
 ed
 efibootmgr
 exfat-utils
+expac
 fakeroot
 ffmpegthumbnailer
 firefox
@@ -54,8 +56,8 @@ htop-vim-git
 i3-gaps
 i3blocks
 i3lock
+inetutils
 inkscape
-jdk11-openjdk
 jfsutils
 jsoncpp
 lf-bin
@@ -81,7 +83,7 @@ mpv
 mutt-wizard-git
 nano
 ncdu
-ncmpcpp
+ncmpcpp-git
 neofetch
 neovim
 netctl
@@ -89,12 +91,14 @@ networkmanager
 newsboat
 nodejs
 noto-fonts-emoji
+nss-mdns
 ntfs-3g
 odt2txt
 os-prober
 p7zip
 pacgraph
 pam-gnupg-git
+pamixer
 patch
 pavucontrol
 pdfjs
@@ -104,7 +108,6 @@ pkgconf
 pulseaudio-alsa
 pulseaudio-bluetooth
 pulsemixer
-pycharm-community-edition
 pypy3
 python-numpy
 python-pip
@@ -121,6 +124,7 @@ rxvt-unicode
 s-nail
 sc-im
 screenkey-git
+shfmt
 simple-mtpfs
 socat
 speedtest-cli
@@ -132,6 +136,7 @@ sxiv
 syncthing
 task-spooler
 the_silver_searcher
+thunar
 tldr
 tlp
 tmux
@@ -149,6 +154,7 @@ ueberzug
 ufw
 unclutter
 unrar
+unzip
 urlscan
 urlview
 usb_modeswitch
@@ -176,7 +182,8 @@ yay
 youtube-dl
 youtube-viewer
 zathura-djvu
-zathura-pdf-mupdf
+zathura-pdf-poppler
+zbar
 zip
 zsh-syntax-highlighting
 zsh-system-clipboard-git
