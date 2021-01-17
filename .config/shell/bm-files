@@ -1,7 +1,7 @@
-bf	~/.config/bmfiles
-bd	~/.config/bmdirs
+bf	~/.config/shell/bm-files
+bd	~/.config/shell/bm-dirs
 cfb	~/.bashrc
-cfa	~/.config/aliasrc
+cfa	~/.config/shell/aliasrc
 cfz	~/.config/zsh/.zshrc
 cfv	~/.config/nvim/init.vim
 cfi	~/.config/i3/config
@@ -18,5 +18,6 @@ cfB	~/.local/src/dwmblocks/config.h
 cfk	~/.config/sxhkd/sxhkdrc
 cfc	~/.config/compton/compton.conf
 cfx	~/.xprofile
+cfp ~/.profile
 cfg	~/.gitignore
-cfr ~/.config/ranger/rc.conf
+cfr	~/.config/ranger/rc.conf

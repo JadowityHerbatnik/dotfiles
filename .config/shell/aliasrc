@@ -58,6 +58,8 @@ alias ka="killall" \
   v='eval "$(fc -ln -1) | xargs $EDITOR"' \
   c='eval "$(fc -ln -1) | tr -d \"\n\" | xclip -i -selection clipboard"' \
   ipfsgen='ipfs key gen --type=rsa --size=2048' \
+  adbu='adb shell pm uninstall -k --user 0' \
+  adbr='adb shell cmd package install-existing' \
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 
