@@ -1,0 +1,16 @@
+#!/usr/bin/pulseaudio -nF
+.include /etc/pulse/default.pa
+
+### Swap left-right channel
+load-module module-remap-sink sink_name=reverse-stereo master=0 channels=2 master_channel_map=front-right,front-left channel_map=front-left,front-right
+set-default-sink reverse-stereo
+
+### Load several protocols
+# load-module module-dbus-protocol
+# .ifexists module-esound-protocol-unix.so
+# load-module module-esound-protocol-unix
+# .endif
+
+### Automatically move streams to the default sink if the sink they are
+### connected to dies, similar for sources
+load-module module-rescue-streams
