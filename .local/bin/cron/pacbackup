@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
 source $HOME/.local/bin/cron/setupcron
-pacman -Qqett > ~/.config/paclist
+pacman -Qqett --native > ~/.config/paclist
+pacman -Qqett --foreign > ~/.config/aurlist
 notify-send "📦 Repository Backup" "Package database updated"
