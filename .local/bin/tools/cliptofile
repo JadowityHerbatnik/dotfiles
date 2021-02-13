@@ -1,3 +1,5 @@
 #!/usr/bin/env sh
 
-xclip -o -selection clipboard >> "$1"
+# if image, save as image file, else append to text file
+extension=$(xclip -selection clipboard -t TARGETS -o | grep -P --only-matching '(?<=image/)\w+')
+[[ $? -eq 0 ]] && xclip -selection clipboard -t "image/$extension" -o > "$1.$extension" || xclip -selection clipboard -o >> "$1"
