@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-# v. 2.7
+# v. 2.10
 # Interactive subtitles for `mpv` for language learners.
 
 import os, subprocess, sys
@@ -108,19 +108,23 @@ def pons(word):
 	return pairs, word_descr_gen
 
 # https://github.com/ssut/py-googletrans
-class TokenAcquirer(object):
+class TokenAcquirer_DISABLED:
 	"""Google Translate API token generator
+
 	translate.google.com uses a token to authorize the requests. If you are
 	not Google, you do have this token and will have to pay for use.
 	This class is the result of reverse engineering on the obfuscated and
 	minified code used by Google to generate such token.
+
 	The token is based on a seed which is updated once per hour and on the
 	text that will be translated.
 	Both are combined - by some strange math - in order to generate a final
 	token (e.g. 744915.856682) which is used by the API to validate the
 	request.
+
 	This operation will cause an additional request to get an initial
 	token from translate.google.com.
+
 	Example usage:
 		>>> from googletrans.gtoken import TokenAcquirer
 		>>> acquirer = TokenAcquirer()
@@ -129,21 +133,20 @@ class TokenAcquirer(object):
 		>>> tk
 		950629.577246
 	"""
-
-	RE_TKK = re.compile(r'tkk:\'(.+?)\'', re.DOTALL)
-	RE_RAWTKK = re.compile(r'tkk:\'(.+?)\'', re.DOTALL)
-
-	def __init__(self, tkk='0', session=None, host='translate.google.com'):
-		self.session = session or requests.Session()
-		self.tkk = tkk
-		self.host = host if 'http' in host else 'https://' + host
-
-
+	import httpx
 	def rshift(self, val, n):
 		"""python port for '>>>'(right shift with padding)
 		"""
 		return (val % 0x100000000) >> n
-		
+	
+	RE_TKK = re.compile(r'tkk:\'(.+?)\'', re.DOTALL)
+	RE_RAWTKK = re.compile(r'tkk:\'(.+?)\'', re.DOTALL)
+
+	def __init__(self, client = httpx, tkk='0', host='translate.googleapis.com'):
+		self.client = client
+		self.tkk = tkk
+		self.host = host if 'http' in host else 'http://' + host
+
 	def _update(self):
 		"""update tkk
 		"""
@@ -151,21 +154,23 @@ class TokenAcquirer(object):
 		now = math.floor(int(time.time() * 1000) / 3600000.0)
 		if self.tkk and int(self.tkk.split('.')[0]) == now:
 			return
-
-		r = self.session.get(self.host)
+		
+		r = self.client.get(self.host)
 
 		raw_tkk = self.RE_TKK.search(r.text)
 		if raw_tkk:
 			self.tkk = raw_tkk.group(1)
 			return
 
-		# this will be the same as python code after stripping out a reserved word 'var'
-		code = unicode(self.RE_TKK.search(r.text).group(1)).replace('var ', '')
-		# unescape special ascii characters such like a \x3d(=)
-		if PY3:  # pragma: no cover
+		try:
+			# this will be the same as python code after stripping out a reserved word 'var'
+			code = self.RE_TKK.search(r.text).group(1).replace('var ', '')
+			# unescape special ascii characters such like a \x3d(=)
 			code = code.encode().decode('unicode-escape')
-		else:  # pragma: no cover
-			code = code.decode('string_escape')
+		except AttributeError:
+			raise Exception('Could not find TKK token for this request.\nSee https://github.com/ssut/py-googletrans/issues/234 for more details.')
+		except:
+			raise
 
 		if code:
 			tree = ast.parse(code)
@@ -209,12 +214,15 @@ class TokenAcquirer(object):
 			self.tkk = result
 
 	def _lazy(self, value):
-		"""like lazy evalution, this method returns a lambda function that
+		"""like lazy evaluation, this method returns a lambda function that
 		returns value given.
 		We won't be needing this because this seems to have been built for
 		code obfuscation.
+
 		the original code of this method is as follows:
+
 		   ... code-block: javascript
+
 			   var ek = function(a) {
 				return function() {
 					return a;
@@ -229,7 +237,7 @@ class TokenAcquirer(object):
 		while c < size_b - 2:
 			d = b[c + 2]
 			d = ord(d[0]) - 87 if 'a' <= d else int(d)
-			d = self.rshift(a, d) if '+' == b[c + 1] else a << d
+			d = rshift(a, d) if '+' == b[c + 1] else a << d
 			a = a + d & 4294967295 if '+' == b[c] else a ^ d
 
 			c += 3
@@ -245,9 +253,9 @@ class TokenAcquirer(object):
 			else:
 				# Python doesn't natively use Unicode surrogates, so account for those
 				a += [
-					math.floor((val - 0x10000)/0x400 + 0xD800),
-					math.floor((val - 0x10000)%0x400 + 0xDC00)
-					]
+					math.floor((val - 0x10000) / 0x400 + 0xD800),
+					math.floor((val - 0x10000) % 0x400 + 0xDC00)
+				]
 
 		b = self.tkk if self.tkk != '0' else ''
 		d = b.split('.')
@@ -256,7 +264,7 @@ class TokenAcquirer(object):
 		# assume e means char code array
 		e = []
 		g = 0
-		size = len(text)
+		size = len(a)
 		while g < size:
 			l = a[g]
 			# just append if l is less than 128(ascii: DEL)
@@ -271,13 +279,13 @@ class TokenAcquirer(object):
 					if (l & 64512) == 55296 and g + 1 < size and \
 							a[g + 1] & 64512 == 56320:
 						g += 1
-						l = 65536 + ((l & 1023) << 10) + (a[g] & 1023) # This bracket is important
+						l = 65536 + ((l & 1023) << 10) + (a[g] & 1023)  # This bracket is important
 						e.append(l >> 18 | 240)
 						e.append(l >> 12 & 63 | 128)
 					else:
 						e.append(l >> 12 | 224)
 					e.append(l >> 6 & 63 | 128)
-				e.append(l & 63 | 128)   
+				e.append(l & 63 | 128)
 			g += 1
 		a = b
 		for i, value in enumerate(e):
@@ -296,13 +304,140 @@ class TokenAcquirer(object):
 		tk = self.acquire(text)
 		return tk
 
+# https://github.com/Saravananslb/py-googletranslation
+class TokenAcquirer:
+    """Google Translate API token generator
+
+    translate.google.com uses a token to authorize the requests. If you are
+    not Google, you do have this token and will have to pay for use.
+    This class is the result of reverse engineering on the obfuscated and
+    minified code used by Google to generate such token.
+
+    The token is based on a seed which is updated once per hour and on the
+    text that will be translated.
+    Both are combined - by some strange math - in order to generate a final
+    token (e.g. 464393.115905) which is used by the API to validate the
+    request.
+
+    This operation will cause an additional request to get an initial
+    token from translate.google.com.
+
+    Example usage:
+        >>> from pygoogletranslation.gauthtoken import TokenAcquirer
+        >>> acquirer = TokenAcquirer()
+        >>> text = 'test'
+        >>> tk = acquirer.do(text)
+        >>> tk
+        464393.115905
+    """
+
+    def __init__(self, tkk='0', tkk_url='https://translate.google.com/translate_a/element.js', proxies=None):
+
+        if proxies is not None:
+            self.proxies = proxies
+        else:
+            self.proxies = None
+
+        r = requests.get(tkk_url, proxies=self.proxies)
+
+        if r.status_code == 200:
+            re_tkk = re.search("(?<=tkk=\\')[0-9.]{0,}", str(r.content.decode("utf-8")))            
+            if re_tkk:
+                self.tkk = re_tkk.group(0)
+            else:
+                self.tkk = '0'
+        else:
+            self.tkk = '0'
+
+
+    def _xr(self, a, b):
+            size_b = len(b)
+            c = 0
+            while c < size_b - 2:
+                d = b[c + 2]
+                d = ord(d[0]) - 87 if 'a' <= d else int(d)
+                d = self.rshift(a, d) if '+' == b[c + 1] else a << d
+                a = a + d & 4294967295 if '+' == b[c] else a ^ d
+
+                c += 3
+            return a
+
+    def acquire(self, text):
+        a = []
+        # Convert text to ints
+        for i in text:
+            val = ord(i)
+            if val < 0x10000:
+                a += [val]
+            else:
+                # Python doesn't natively use Unicode surrogates, so account for those
+                a += [
+                    math.floor((val - 0x10000) / 0x400 + 0xD800),
+                    math.floor((val - 0x10000) % 0x400 + 0xDC00)
+                ]
+
+        b = self.tkk
+        d = b.split('.')
+        b = int(d[0]) if len(d) > 1 else 0
+
+        # assume e means char code array
+        e = []
+        g = 0
+        size = len(a)
+        while g < size:
+            l = a[g]
+            # just append if l is less than 128(ascii: DEL)
+            if l < 128:
+                e.append(l)
+            # append calculated value if l is less than 2048
+            else:
+                if l < 2048:
+                    e.append(l >> 6 | 192)
+                else:
+                    # append calculated value if l matches special condition
+                    if (l & 64512) == 55296 and g + 1 < size and \
+                            a[g + 1] & 64512 == 56320:
+                        g += 1
+                        l = 65536 + ((l & 1023) << 10) + (a[g] & 1023)  # This bracket is important
+                        e.append(l >> 18 | 240)
+                        e.append(l >> 12 & 63 | 128)
+                    else:
+                        e.append(l >> 12 | 224)
+                    e.append(l >> 6 & 63 | 128)
+                e.append(l & 63 | 128)
+            g += 1
+        a = b
+        for i, value in enumerate(e):
+            a += value
+            a = self._xr(a, '+-a^+6')
+        a = self._xr(a, '+-3^+b+-f')
+        a ^= int(d[1]) if len(d) > 1 else 0
+        if a < 0:  # pragma: nocover
+            a = (a & 2147483647) + 2147483648
+        a %= 1000000  # int(1E6)
+        return '{}.{}'.format(a, a ^ b)
+
+    def do(self, text):
+        tk = self.acquire(text)
+        return tk
+
+    
+    def rshift(self, val, n):
+        """python port for '>>>'(right shift with padding)
+        """
+        return (val % 0x100000000) >> n
+
 # translate.google.com
 def google(word):
+	word = word.replace('\n', ' ').strip()
 	url = 'https://translate.google.com/translate_a/single?client=t&sl={lang_from}&tl={lang_to}&hl={lang_to}&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&ie=UTF-8&oe=UTF-8&otf=1&pc=1&ssel=3&tsel=3&kc=2&q={word}'.format(lang_from = config.lang_from, lang_to = config.lang_to, word = quote(word))
 
 	pairs = []
 	fname = 'urls/' + url.replace('/', "-")
 	try:
+		if ' ' in word:
+			raise Exception('skip saving')
+		
 		p = open(fname).read().split('=====/////-----')
 		try:
 			word_descr = p[1].strip()
@@ -344,7 +479,7 @@ def google(word):
 
 		word_descr = ''
 		# extra check against double-writing from rouge threads
-		if not os.path.isfile(fname):
+		if ' ' not in word and not os.path.isfile(fname):
 			print('\n\n'.join(e[0] + '\n' + e[1] for e in pairs), file=open(fname, 'a'))
 			print('\n'+'=====/////-----'+'\n', file=open(fname, 'a'))
 			print(word_descr, file=open(fname, 'a'))
@@ -658,7 +793,6 @@ def deepl(text):
 	}
 
 	response = requests.post('https://www2.deepl.com/jsonrpc', json=parameters).json()
-	print(response)
 	if 'result' not in response:
 		return 'DeepL call resulted in a unknown result.'
 
@@ -1014,7 +1148,7 @@ def r2l(l):
 		l2 += re.findall('^\W+', l)[0][::-1]
 	except:
 		pass
-
+	
 	return l2
 
 def split_long_lines(line, chunks = 2, max_symbols_per_line = False):
@@ -1076,6 +1210,10 @@ class thread_subtitles(QObject):
 				tmp_file_subs = open(sub_file).read()
 			except:
 				continue
+			
+			# tmp hack
+			# if config.R2L_from_B:
+			# 	tmp_file_subs = r2l(tmp_file_subs.strip())
 
 			if config.extend_subs_duration2max_B and not len(tmp_file_subs):
 				if not config.extend_subs_duration_limit_sec:
@@ -1188,6 +1326,7 @@ class drawing_layer(QLabel):
 				alpha = 200
 			else:
 				alpha = (max(range_width) - width) / max(range_width) * 200
+				alpha = int(alpha)
 
 			blur_color = QColor(outline_color.red(), outline_color.green(), outline_color.blue(), alpha)
 			blur_brush = QBrush(blur_color, Qt.SolidPattern)
@@ -1377,8 +1516,13 @@ class events_class(QLabel):
 		config.auto_pause_min_words += 1
 		mpv_message('auto_pause_min_words: %d' % config.auto_pause_min_words)
 
+	# f_deepl_translation -> f_translation_full_sentence
 	@pyqtSlot()
 	def f_deepl_translation(self, event):
+		self.mouseHover.emit(self.subs , event.globalX(), True)
+	
+	@pyqtSlot()
+	def f_translation_full_sentence(self, event):
 		self.mouseHover.emit(self.subs , event.globalX(), True)
 
 	def f_save_word_to_file(self, event):
@@ -1569,10 +1713,10 @@ class main_class(QWidget):
 		else:
 			y = config.screen_height - config.subs_screen_edge_padding - h
 
-		self.subtitles.setGeometry(x, y, 0, 0)
+		self.subtitles.setGeometry(int(x), int(y), 0, 0)
 		self.subtitles.show()
 
-		self.subtitles2.setGeometry(x, y, 0, 0)
+		self.subtitles2.setGeometry(int(x), int(y), 0, 0)
 		self.subtitles2.show()
 
 	def render_popup(self, text, x_cursor_pos, is_line):
@@ -1585,7 +1729,14 @@ class main_class(QWidget):
 
 		if is_line:
 			QApplication.setOverrideCursor(Qt.WaitCursor)
-			line = deepl(text)
+			
+			line = globals()[config.translation_function_name_full_sentence](text)
+			if config.translation_function_name_full_sentence == 'google':
+				try:
+					line = line[0][0][0].strip()
+				except:
+					line = 'Google translation failed.'
+			
 			if config.split_long_lines_B and len(line.split('\n')) == 1 and len(line.split(' ')) > config.split_long_lines_words_min - 1:
 				line = split_long_lines(line)
 
@@ -1703,7 +1854,7 @@ class main_class(QWidget):
 		else:
 			y = config.screen_height - config.subs_screen_edge_padding - self.subtitles.height - h
 
-		self.popup.setGeometry(x, y, w, 0)
+		self.popup.setGeometry(int(x), int(y), int(w), 0)
 		self.popup.show()
 
 		QApplication.restoreOverrideCursor()
