@@ -24,7 +24,7 @@ super + R
 super + P
 	passmenu
 super + shift + c
-	camtoggle
+	copytoclip
 super + shift + w
 	webapps
 super + w

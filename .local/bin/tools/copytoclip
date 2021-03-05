@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+choice=$(cat $XDG_DATA_HOME/text-to-clipboard | dmenu -l 10 -p 'Copy to clipboard:')
+echo $choice | xclip -selection clipboard -i
