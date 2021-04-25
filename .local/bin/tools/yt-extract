@@ -1,0 +1,17 @@
+#!/usr/bin/sh
+from=$(printf "" | dmenu -i -p "Enter start time")
+to=$(printf "" | dmenu -i -p "Enter end time")
+filename=$(printf "" | dmenu -i -p "Enter file name")
+
+video=$(xclip -o -selection clipboard)
+vid_urls=$(youtube-dl --get-url "$video")
+
+v1=$(echo $vid_urls | cut -d ' ' -f 1)
+v2=$(echo $vid_urls | cut -d ' ' -f 2)
+
+# conditionally handle video and audio split into 2 files
+ffmpeg -ss $from -to $to -i $v1 ${v2:+-ss $from -to $to -i $v2}  $filename.mp4
+
+
+
+
