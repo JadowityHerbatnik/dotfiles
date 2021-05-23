@@ -1,4 +1,3 @@
-abook
 adobe-source-han-sans-otc-fonts
 adobe-source-han-serif-otc-fonts
 alacritty
@@ -6,7 +5,6 @@ alsa-utils
 android-tools
 arandr
 atool
-autoconf
 automake
 base
 bashburn
@@ -91,6 +89,7 @@ pdfjs
 pdftk
 perl-image-exiftool
 pkgconf
+powerline-fonts
 pulseaudio-alsa
 pulseaudio-bluetooth
 pulsemixer
@@ -112,6 +111,7 @@ shfmt
 socat
 speedtest-cli
 strace
+sudo
 sxhkd
 sxiv
 syncthing
@@ -156,9 +156,8 @@ xorg-xwininfo
 xsel
 xwallpaper
 youtube-dl
-youtube-viewer
 zathura-djvu
-zathura-pdf-poppler
+zathura-pdf-mupdf
 zbar
 zip
 zsh-syntax-highlighting
