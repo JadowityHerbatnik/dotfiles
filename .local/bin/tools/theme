@@ -2,10 +2,10 @@
 theme=$(printf "Solarized\\nGruvbox\\nDracula" | dmenu -p "choose theme")
 
 change(){
-	sed -i -E "s/colorscheme\s(gruvbox|flattened_dark|dracula)/colorscheme "$1"/g" $HOME/.config/nvim/init.vim
+	sed -i -E "s/colorscheme\s(gruvbox|NeoSolarized|dracula)/colorscheme "$1"/g" $HOME/.config/nvim/init.vim
 	}
 case $theme in
-	Solarized) change "flattened_dark" && wal --theme base16-solarized && xalacritty ;;
+	Solarized) change "NeoSolarized" && wal --theme base16-solarized && xalacritty ;;
 	Gruvbox) change "gruvbox" && wal --theme base16-gruvbox-medium && xalacritty ;;
 	Dracula) change "dracula" && wal --theme base16-dracula && xalacritty ;;
 esac
