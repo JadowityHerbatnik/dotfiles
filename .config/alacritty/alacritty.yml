@@ -1,11 +1,27 @@
-background_opacity: 0.7
+background_opacity: 0.9
+font:
+  size: 9
+
+window:
+  padding:
+    x: 5
+    y: 5
+
+key_bindings:
+- { key: Up, mods: Alt, action: ScrollLineUp }
+- { key: Down, mods: Alt, action: ScrollLineDown }
+- { key: Up, mods: Alt|Shift, action: ScrollPageUp }
+- { key: Down, mods: Alt|Shift, action: ScrollPageDown }
+
+cursor:
+  vi_mode_style: Block
 
 # Colors
 colors:
   # Default colors
   primary:
-    background: '0x100d15'
-    foreground: '0x9ac5bd'
+    background: '0x2d2d2d'
+    foreground: '0xd3d0c8'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
@@ -14,22 +30,22 @@ colors:
 
   # Normal colors
   normal:
-    black:   '0x100d15'
-    red:     '0xdf7349'
-    green:   '0xbb2046'
-    yellow:  '0xdc3c57'
-    blue:    '0xdd9942'
-    magenta: '0xddb940'
-    cyan:    '0x1b9a8e'
-    white:   '0x9ac5bd'
+    black:   '0x2d2d2d'
+    red:     '0xf2777a'
+    green:   '0x99cc99'
+    yellow:  '0xffcc66'
+    blue:    '0x6699cc'
+    magenta: '0xcc99cc'
+    cyan:    '0x66cccc'
+    white:   '0xd3d0c8'
 
   # Bright colors
   bright:
-    black:   '0x6b8984'
-    red:     '0xdf7349'
-    green:   '0xbb2046'
-    yellow:  '0xdc3c57'
-    blue:    '0xdd9942'
-    magenta: '0xddb940'
-    cyan:    '0x1b9a8e'
-    white:   '0x9ac5bd'
+    black:   '0x747369'
+    red:     '0xf2777a'
+    green:   '0x99cc99'
+    yellow:  '0xffcc66'
+    blue:    '0x6699cc'
+    magenta: '0xcc99cc'
+    cyan:    '0x66cccc'
+    white:   '0xf2f0ec'
