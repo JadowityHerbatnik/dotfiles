@@ -142,6 +142,7 @@ w3m
 wget
 x11vnc
 xcape
+xclip
 xcompmgr
 xdotool
 xf86-input-synaptics
