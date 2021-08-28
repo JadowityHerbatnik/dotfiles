@@ -12,6 +12,10 @@ key_bindings:
 - { key: Down, mods: Alt, action: ScrollLineDown }
 - { key: Up, mods: Alt|Shift, action: ScrollPageUp }
 - { key: Down, mods: Alt|Shift, action: ScrollPageDown }
+- { key: K, mods: Control, action: ScrollLineUp }
+- { key: J, mods: Control, action: ScrollLineDown }
+- { key: K, mods: Control|Shift, action: ScrollPageUp }
+- { key: J, mods: Control|Shift, action: ScrollPageDown }
 
 cursor:
   vi_mode_style: Block
