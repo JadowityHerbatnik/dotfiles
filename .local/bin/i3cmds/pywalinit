@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-rm /home/m/.cache/wal/schemes/_home_m__config_wall_png*;
+rm ~/.cache/wal/schemes/_home_m__config_wall_png*;
 wal -R && applycolorscheme
 exit
 

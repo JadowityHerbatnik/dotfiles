@@ -1,7 +1,6 @@
 #!/bin/env sh
-
-mkpath=/home/m/Programming/mkchromecast/bin/mkchromecast
-castpath=/home/m/Programming/castnow/index.js
+mkpath="~/Programming/mkchromecast/bin/mkchromecast"
+castpath="~/Programming/castnow/index.js"
 res=$(xdpyinfo | awk '/dimensions/{print $2}')
 choice=$(printf "Local Video\\nLocal Music\\nDesktop\\nYouTube\\nSource URL/Torrent" | dmenu -i -fn "$fontsize" -p "Choose mode")
 fontsize=7

@@ -7,7 +7,7 @@ RANDOM_DELAY=0
 START_HOURS_RANGE=6-24
 
 #period in days   delay in minutes   job-identifier   command
-1	5	cron.daily		nice run-parts /home/m/.config/anacron/anacron.daily
-7	10	cron.weekly		nice run-parts /home/m/.config/anacron/anacron.weekly
-@monthly 45	cron.monthly		nice run-parts /home/m/.config/anacron/anacron.monthly
+1	5	cron.daily		nice run-parts ~/.config/anacron/anacron.daily
+7	10	cron.weekly		nice run-parts ~/.config/anacron/anacron.weekly
+@monthly 45	cron.monthly		nice run-parts ~/.config/anacron/anacron.monthly
 

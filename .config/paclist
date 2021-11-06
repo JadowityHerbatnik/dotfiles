@@ -99,7 +99,6 @@ python-pip
 python-pywal
 python-selenium
 qtox
-qutebrowser
 ranger
 read-edid
 redshift
@@ -107,7 +106,9 @@ reiserfsprogs
 rsync
 rxvt-unicode
 s-nail
+screenkey
 shfmt
+signal-desktop
 socat
 speedtest-cli
 strace

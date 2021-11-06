@@ -3,4 +3,4 @@
 xalacritty && \
 pkill -1 dwm && \
 killall dunst
-dunst_xr_theme_changer && dunst  -conf /home/m/.config/dunst/dunstrc_xr_colors &
+dunst_xr_theme_changer && dunst  -conf ~/.config/dunst/dunstrc_xr_colors &
