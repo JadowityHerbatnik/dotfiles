@@ -114,6 +114,15 @@ super + {_,shift +} bracketright
 super + {_,shift +} bracketleft
 	lmc back {5,120}
 
+control + space
+	dunstctl close
+control + shift + space
+	dunstctl close-all
+control + grave
+	dunstctl history-pop
+control + shift + period
+	dunstctl context
+
 # Function keys
 # Show readme
 super + F1

@@ -1,17 +1,15 @@
 [global]
     monitor = 0
     follow = keyboard
-    geometry = "350x5-10+30"
+    offset = 10x30
     indicate_hidden = yes
     shrink = yes
     transparency = 0
-    notification_height = 0
     separator_height = 2
     padding = 0
     horizontal_padding = 8
     frame_width = 3
     frame_color = "#282828"
-		corner_radius = 10
 
     # Define a color for the separator.
     # possible values are:
@@ -62,16 +60,9 @@
 
     title = Dunst
     class = Dunst
-    startup_notification = false
     force_xinerama = false
 [experimental]
     per_monitor_dpi = false
-
-[shortcuts]
-    close = ctrl+space
-    close_all = ctrl+shift+space
-    history = ctrl+grave
-    context = ctrl+shift+period
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
