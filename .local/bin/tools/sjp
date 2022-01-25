@@ -1,0 +1,13 @@
+#!/usr/bin/sh
+
+echo "Podaj słowo:"; read -r phrase
+
+parsed_for_sjp=$(echo $phrase | sed 's/\s/+/g')
+parsed_for_pwn=$(echo $phrase | sed 's/\s/%20/g')
+
+sjp_link="https://sjp.pl/"$parsed_for_sjp
+pwn_link="https://sjp.pwn.pl/szukaj/"$parsed_for_pwn".html"
+
+echo
+curl -s $sjp_link | pup 'body > p:nth-child(10) text{}'
+curl -s $pwn_link | pup '.znacz text{}'  | tr -d '\n' | sed 's/[[:digit:]]\./\n&/g'
