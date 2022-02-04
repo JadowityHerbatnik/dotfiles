@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+
+pid=$(pgrep -f polskieradio)
+[ ! -z "$pid" ] && kill $pid || ffplay -nodisp -i "https://stream12.polskieradio.pl/pr2/pr2.sdp/playlist.m3u8"

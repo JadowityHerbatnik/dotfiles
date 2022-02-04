@@ -77,6 +77,8 @@ super + alt + j
 	brightnesscontrol
 super + shift + v
 	cliplay
+super + shift + d
+	toggledwojka
 
 # Recording
 # Take screenshot
