@@ -1,0 +1,18 @@
+#!/usr/bin/sh
+ifinstalled jq
+
+data=$(curl -s "https://apipr.polskieradio.pl/api/mainschedule/?Program=2&SelectedDate="$(date '+%Y-%m-%d'))
+
+current=$(echo $data | jq '.Schedule[] | select(.IsActive == true)')
+title=$(echo $current | jq -j '.Title')
+leaders=$(echo $current | jq -j '.Leaders[]? | .Name," ", .SurName,", "' | sed 's/,\s$//')
+desc=$(echo $current | jq -j '.Description')
+
+case $BLOCK_BUTTON in
+	1) notify-send "${leaders:-${title}}" "$desc"; pkill -RTMIN+13 ${STATUSBAR} ;;
+esac
+
+echo "📻" $title
+echo
+echo "$desc"
+
