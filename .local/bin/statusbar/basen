@@ -1,0 +1,24 @@
+#!/usr/bin/sh
+
+ifinstalled jq || exit 1
+
+url="https://miejskoaktywni.pl/api/activities_table_items"
+data=`curl -s $url`
+
+wlokiennicza=$(echo $data | jq -j '.[] | select(.title == "Pływalnia Sportowa") | .content')
+stroma=$(echo $data | jq -j '.[] | select(.title == "Pływalnia Rodzinna") | .content')
+
+format_msg () {
+  local people_count=$(echo "$1" | grep -P -o '\d+')
+
+  local current=$(echo "$people_count" | sed '1q;d')
+  local max=$(echo "$people_count" | sed '2q;d')
+
+  echo "$current"/"$max"
+}
+
+echo "🏊" $(format_msg "$wlokiennicza") "👪" $(format_msg "$stroma")
+echo
+echo "Włókiennicza:" $(format_msg "$wlokiennicza")
+echo "Stroma:" $(format_msg "$stroma")
+
