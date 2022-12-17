@@ -3,4 +3,5 @@
 source $HOME/.local/bin/cron/setupcron
 pacman -Qqett --native > ~/.config/paclist
 pacman -Qqett --foreign > ~/.config/aurlist
+npm list -g --depth 0 -json > ~/.config/npmlist.json
 notify-send "📦 Repository Backup" "Package database updated"

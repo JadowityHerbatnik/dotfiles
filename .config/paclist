@@ -1,3 +1,4 @@
+acpi
 adobe-source-han-sans-otc-fonts
 adobe-source-han-serif-otc-fonts
 alacritty
@@ -19,6 +20,7 @@ chafa
 chromium
 clamav
 cronie
+curlie
 dhcpcd
 dialog
 dmidecode
@@ -33,10 +35,7 @@ fakeroot
 ffmpegthumbnailer
 firefox
 flex
-freeglut
 fzf
-gcc
-geckodriver
 gimp
 gnome-keyring
 gparted
@@ -49,7 +48,7 @@ i3lock
 inetutils
 inkscape
 jfsutils
-jsoncpp
+jq
 libreoffice-fresh
 light
 linux-firmware
@@ -94,10 +93,8 @@ pulseaudio-alsa
 pulseaudio-bluetooth
 pulsemixer
 pypy3
-python-numpy
 python-pip
 python-pywal
-python-selenium
 qtox
 ranger
 read-edid
@@ -119,7 +116,6 @@ syncthing
 the_silver_searcher
 thunar
 tldr
-tlp
 tmux
 translate-shell
 transmission-cli
@@ -128,7 +124,7 @@ ttf-font-awesome
 ttf-inconsolata
 ttf-joypixels
 ttf-linux-libertine
-ttf-nerd-fonts-symbols-mono
+ttf-nerd-fonts-symbols-1000-em
 ueberzug
 ufw
 unclutter
@@ -136,6 +132,7 @@ unrar
 unzip
 urlscan
 usb_modeswitch
+usbutils
 vi
 vifm
 virtualbox

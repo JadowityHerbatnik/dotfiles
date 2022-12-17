@@ -1,0 +1,69 @@
+{
+  "name": "lib",
+  "dependencies": {
+    "@fsouza/prettierd": {
+      "version": "0.22.5",
+      "overridden": false
+    },
+    "axios": {
+      "version": "0.19.2",
+      "overridden": false
+    },
+    "castnow": {
+      "version": "0.6.0",
+      "overridden": false
+    },
+    "eslint_d": {
+      "version": "12.2.1",
+      "overridden": false
+    },
+    "neovim": {
+      "version": "4.10.1",
+      "overridden": false
+    },
+    "npm": {
+      "version": "9.2.0",
+      "overridden": false
+    },
+    "peerflix": {
+      "version": "0.39.0",
+      "overridden": false
+    },
+    "prettier": {
+      "version": "2.8.1",
+      "overridden": false
+    },
+    "sass": {
+      "version": "1.57.0",
+      "overridden": false
+    },
+    "serve": {
+      "version": "11.3.2",
+      "overridden": false
+    },
+    "stylelint-lsp": {
+      "version": "1.2.4",
+      "overridden": false
+    },
+    "tern": {
+      "version": "0.24.3",
+      "overridden": false
+    },
+    "typescript-language-server": {
+      "version": "2.2.0",
+      "overridden": false
+    },
+    "typescript": {
+      "version": "4.9.4",
+      "overridden": false
+    },
+    "vscode-langservers-extracted": {
+      "version": "4.5.0",
+      "overridden": false
+    },
+    "youtube-comment-scraper-cli": {
+      "version": "1.0.2",
+      "overridden": false
+    }
+  }
+}
